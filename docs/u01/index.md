@@ -3,7 +3,7 @@
 title: Introducció a la Intel·ligència Artificial
 subtitle: 
 authors: 
-    - Departament d'informàtica
+    - Fidel Oltra Landete
 lang: ca
 page-background: img/bg.png
 
