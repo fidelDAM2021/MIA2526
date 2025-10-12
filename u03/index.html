@@ -1,0 +1,1119 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../u02/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Algorismes de cerca. Conceptes previs. - Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/taules.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#solucio-de-problemes-mitjancant-cerques-conceptes-previs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-header__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Algorismes de cerca. Conceptes previs.
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-nav__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inici
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentació
+    
+      <br>
+      <small>Mòdul Models d'Intel·ligència Artificial</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introducció a la Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Introducció als Models d'Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.1 Solució de problemes de cerca
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Solució de problemes de cerca
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grafs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-grafs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipus de grafs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-poc-dhistoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Un poc d'història
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacio-de-grafs-amb-estructures-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representació de grafs amb estructures de dades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-de-graf-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple de graf en Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-problemes-habituals-amb-grafs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipus de problemes habituals amb grafs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arbres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arbres
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-darbres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipus d'arbres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacio-darbres-amb-estructures-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representació d'arbres amb estructures de dades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recorregut-darbres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recorregut d'arbres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercici
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llistes-piles-i-cues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llistes, piles i cues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Llistes, piles i cues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llistes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llistes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Piles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complexitat-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexitat computacional
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complexitat computacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complexitat-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexitat temporal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexitat-espacial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexitat espacial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercicis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#grafs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grafs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grafs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-grafs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipus de grafs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-poc-dhistoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Un poc d'història
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacio-de-grafs-amb-estructures-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representació de grafs amb estructures de dades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-de-graf-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple de graf en Python
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-de-problemes-habituals-amb-grafs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipus de problemes habituals amb grafs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arbres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arbres
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arbres">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipus-darbres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipus d'arbres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacio-darbres-amb-estructures-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representació d'arbres amb estructures de dades
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recorregut-darbres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recorregut d'arbres
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercici" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercici
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llistes-piles-i-cues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llistes, piles i cues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Llistes, piles i cues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llistes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llistes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Piles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complexitat-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexitat computacional
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complexitat computacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complexitat-temporal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexitat temporal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complexitat-espacial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complexitat espacial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercicis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="solucio-de-problemes-mitjancant-cerques-conceptes-previs">Solució de problemes mitjançant cerques. Conceptes previs.</h1>
+<p>En esta unitat didàctica treballarem la resolució de problemes mitjançant cerques. Abans de començar a veure tipus de cerques i algorismes, anem a repassar en alguns casos, o a introduir en altres, certs conceptes previs necessaris per a entendre la resta de la unitat. En general el que anem a veure són, principalment, estructures i conceptes matemàtics que ens permeten modelar i implementar, de la manera més eficient, els problemes que volem resoldre, la informació de què disposem i les solucions que busquem. </p>
+<h2 id="grafs">Grafs</h2>
+<p>Un <strong>graf</strong> és una estructura de dades formada per un conjunt de <strong>nodes</strong> (o vèrtexs) i un conjunt d'<strong>arestes</strong> que connecten parells de nodes. Els grafs són útils per modelar relacions no jeràrquiques entre objectes, com ara xarxes socials, rutes de transport, connexions d'ordinadors, etc.</p>
+<p><img alt="Graf no dirigit" src="imatges/u03-01-01.jpg" /></p>
+<p>En el cas de l'ús de grafs per a cerques, els nodes poden representar estats o posicions, i les arestes representen les transicions o moviments entre els diferents estats. Així, un problema de cerca pot ser modelat com un graf on volem trobar un camí des d'un node inicial fins a un node objectiu.</p>
+<p>El <strong>grau</strong> d'un node és el nombre d'arestes que estan connectades a ell. Un node amb grau 0 no té connexions, un node amb grau 1 està connectat a un altre node, i així successivament. El grau d'un node és important perquè ens ajuda a entendre la seua connexió amb altres nodes en el graf.</p>
+<blockquote>
+<p>En la imatge, els nodes de dalt i baix tenen grau 2, ja que estan connectats a dos nodes, mentre que els nodes dels laterals tenen grau 3, ja que estan connectats a tres nodes.</p>
+</blockquote>
+<h3 id="tipus-de-grafs">Tipus de grafs</h3>
+<p>Pel que fa a les <strong>arestes</strong>, els grafs poden ser <strong>dirigits</strong> o <strong>no dirigits</strong>.</p>
+<p>Un graf <strong>no dirigit</strong> és aquell en què les arestes no tenen una direcció específica; és a dir, si hi ha una aresta entre els nodes A i B, es pot anar de A a B i també de B a A. En canvi, un graf <strong>dirigit</strong> té arestes amb una direcció específica, de manera que si hi ha una aresta que apunta de A a B, només es pot anar de A a B i no al revés. Un graf no dirigit es pot representar tal com hem vist a la imatge anterior. Un graf dirigit seria el següent:</p>
+<p><img alt="Graf dirigit" src="imatges/u03-01-02.jpg" /></p>
+<p>En un graf dirigit, si de un node només eixen arestes cap a altres nodes, però ni ha cap aresta que entre en ell, es diu que és un <strong>node font</strong>. Si un node només té arestes entrant però no eixint, es diu que és un <strong>node sumider</strong>. Això és útil per a identificar punts d'inici i final en un graf dirigit.</p>
+<p>Un graf <strong>cíclic</strong> és aquell que conté un camí que comença i acaba en el mateix node, passant per altres nodes. És a dir, es pot tornar al punt d'inici després de travessar alguns nodes i arestes. Això és important en molts problemes de cerca on es vol explorar un cicle complet.</p>
+<p>Un graf <strong>ponderat</strong> és aquell en què les arestes tenen un valor associat, que pot representar un cost, distància o qualsevol altra mesura. Això és útil quan volem trobar el camí més curt o el camí amb el menor cost entre dos nodes.</p>
+<p><img alt="Graf ponderat" src="imatges/u03-01-02b.jpg" /></p>
+<p>Un graf <strong>complet</strong> és aquell en què hi ha una aresta entre cada parell de nodes. És a dir, tots els nodes estan connectats entre si. Això és útil quan volem assegurar-nos que hi ha una connexió directa entre tots els nodes del graf.</p>
+<p>Un graf <strong>connex</strong> és aquell en què es pot traçar un camí entre qualsevol parell de nodes sense sortir del graf. És a dir, no hi ha arestes que connecten nodes que estiguin fora del camí traçat. Això és important per a garantir que es pot arribar a qualsevol node des d'un altre node. Un graf complet sempre és connex, però un graf connex no sempre és complet.</p>
+<p><img alt="Graf connex i graf complet" src="imatges/u03-01-02c.jpg" /></p>
+<p>Els grafs acíclics i dirigits, coneguts com a <strong>DAGs</strong> (Directed Acyclic Graphs), són molt utilitzats en programació. Per exemple, com veurem més endavant, per  construir <strong>arbres de decisió</strong>.</p>
+<h3 id="un-poc-dhistoria">Un poc d'història</h3>
+<p>Els grafs han estat estudiats des de fa molt de temps, i un dels primers problemes relacionats amb ells és el <strong>Problema dels set ponts de Königsberg</strong>, plantejat per Leonhard Euler al segle XVIII. En aquest problema, es tractava de trobar un camí que travessara tots els ponts de la ciutat de Königsberg exactament una vegada (és a dir, sense passar dues vegades pel mateix pont). Euler va demostrar que no era possible introduïnt el concepte de <strong>graf eulerià</strong>: es tracta d'un graf on tots els nodes són de grau parell o si hi ha exactament dos nodes de grau imparell. El graf que representava els ponts de Königsberg no era eulerià, ja que tenia tots els nodes (4) de grau imparell. Aquest problema va portar al desenvolupament de la teoria dels grafs. El camí que connecta tots els nodes sense passar dues vegades per la mateixa aresta es coneix com a <strong>camí eulerià</strong>.</p>
+<p><img alt="Els ponts de Königsberg" src="imatges/u03-01-03.jpg" /></p>
+<p>Una forma alternativa del problema demana que el camí passe per tots els ponts i torne al punt d'inici. Un circuit així s'anomena un <strong>circuit eulerià</strong>. Existeix un circuit eulerià si no hi cap node de grau imparell.</p>
+<p><strong>Exercici</strong>: intenteu dibuixar un sobre obert sense alçar el llapis del paper i sense passar dues vegades per la mateixa aresta. Se pot? Per què? I un sobre tancat? I un sobre obert i tancat al mateix temps? </p>
+<p><img alt="Exercici" src="imatges/u03-01-04.jpg" /></p>
+<p>Ara intenteu fer el mateix amb les tres figures però tampoc podeu passar dues vegades pel mateix node. Quines figures podeu dibuixar i quines no?</p>
+<p>Si hi ha dos nodes de grau imparell, el camí eulerià començarà en un d'ells i acabarà en l'altre. Si tots els nodes són de grau parell, el camí eulerià començarà i acabarà en el mateix node. Si hi ha més de dos nodes de grau imparell, no hi ha cap camí eulerià possible.</p>
+<p>Un circuit que només passe 1 vegada per cada aresta i per cada node s'anomena <strong>circuit hamiltonià</strong>. Un circuit hamiltonià és prou més complicat de trobar (si és possible) i la seua base matemàtica és molt complexa.</p>
+<h3 id="representacio-de-grafs-amb-estructures-de-dades">Representació de grafs amb estructures de dades</h3>
+<p>Hi ha diverses maneres de representar un graf, les més comunes són:</p>
+<ul>
+<li><strong>Matriu d'adjacència</strong>: Una matriu quadrada on l'element a la fila i columna (i, j) indica si hi ha una aresta entre els nodes i i j.</li>
+<li><strong>Llista d'adjacència</strong>: Una llista on cada element correspon a un node i conté una llista dels nodes als quals està connectat per arestes. Si el graf és ponderat, cada element de la llista pot incloure també el pes de l'aresta.</li>
+</ul>
+<p>Exemple de matriu d'adjacència:</p>
+<pre><code>    A B C D
+  A 0 1 1 0
+  B 1 0 0 1
+  C 1 0 0 1
+  D 0 1 1 0
+</code></pre>
+<p>En un graf ponderat, en lloc de posar un 1 on hi ha una aresta posariem el seu pes:</p>
+<pre><code>    A B C D
+  A 0 2 3 0
+  B 2 0 0 1
+  C 3 0 0 4
+  D 0 1 4 0
+</code></pre>
+<p>Exemple de llista d'adjacència sense arestes ponderades:</p>
+<pre><code>A: B, C
+B: A, D
+C: A, D
+D: B, C
+</code></pre>
+<p>Amb arestes ponderades:</p>
+<pre><code>A: (B,2), (C,3)
+B: (A,2), (D,1)
+C: (A,3), (D,4)
+D: (B,1), (C,4)
+</code></pre>
+<p>En este cas la matriu és simètrica, ja que les arestes són no dirigides. En un graf dirigit, la matriu no seria simètrica, ja que les arestes tindrien una direcció específica. Per exemple, el següent graf dirigit:</p>
+<p><img alt="Graf dirigit ponderat" src="imatges/u03-01-05.jpg" /></p>
+<p>Se representaria amb una llista d'adjacència com la següent:</p>
+<pre><code>A: (B,5), (C,9)
+B: (D,2), (E,7)
+C: (D,3)
+D: (A,1), (E,13)
+E: 
+</code></pre>
+<p>Aquesta representació és útil per a cerques, ja que permet accedir ràpidament als nodes i les seues connexions. La matriu d'adjacència és més eficient per a grafs densos (amb moltes arestes), mentre que la llista d'adjacència és més eficient per a grafs amb poques arestes perquè evitem que els valors 0 ocupen espai en memòria. Compareu la llista que hem vist abans amb la següent matriu d'adjacència que és equivalent:</p>
+<pre><code>    A B C D E
+  A 0 5 9 0 0
+  B 0 0 0 2 7
+  C 0 0 0 3 0
+  D 1 0 0 0 13
+  E 0 0 0 0 0
+</code></pre>
+<p>Potser en aquest exemple no trobeu gran diferència, però imagineu el cas que el graf tinguera 1000 nodes i només 10 arestes, la matriu d'adjacència ocuparia 1.000.000 de posicions (1.000 x 1.000), mentre que la llista d'adjacència només ocuparia espai per a les 10 arestes.</p>
+<h3 id="exemple-de-graf-en-python">Exemple de graf en Python</h3>
+<p>Per a representar un graf en Python, podem utilitzar una classe que continga una llista d'adjacència. Aquí teniu un exemple senzill:</p>
+<pre><code class="language-python">class Graf:
+    def __init__(self):
+        self.adjacencia = {}
+
+    def afegir_aresta(self, node1, node2, pes=1):
+        # la funció permet afegir una aresta entre dos nodes amb un pes opcional (per defecte és 1)
+        # Si els nodes no existeixen, els inicialitzem
+        # node1 i node2 poden ser qualsevol tipus de dades (números, cadenes, etc.) Les guardem com a claus del diccionari
+        if node1 not in self.adjacencia:
+            self.adjacencia[node1] = []
+        if node2 not in self.adjacencia: # només si el graf és no dirigit
+            self.adjacencia[node2] = []
+        # Afegim l'aresta a la llista d'adjacència
+        # Si el graf és dirigit, només afegim l'aresta en una direcció
+        # Si és no dirigit, afegim l'aresta en ambdues, com en este cas
+        self.adjacencia[node1].append((node2, pes))
+        self.adjacencia[node2].append((node1, pes))  # Si el graf és no dirigit
+
+    def mostrar(self):
+        for node, connexions in self.adjacencia.items():
+            print(f&quot;{node}: {connexions}&quot;)
+</code></pre>
+<h3 id="tipus-de-problemes-habituals-amb-grafs">Tipus de problemes habituals amb grafs</h3>
+<p>Els grafs són una eina molt potent per a resoldre diversos tipus de problemes. Alguns dels més comuns són:</p>
+<ul>
+<li><strong>Cerca de camins mínims</strong>: Trobar el camí més curt entre dos nodes.</li>
+<li><strong>Cerca de connexions</strong>: Determinar si hi ha un camí entre dos nodes.</li>
+<li><strong>Cerca de components connexos</strong>: Identificar grups de nodes que estan connectats entre si.</li>
+<li><strong>Cerca de cicles</strong>: Determinar si hi ha un cicle en un graf.</li>
+<li><strong>Cerca de camins eulerians i hamiltonians</strong>: Trobar camins que compleixen les condicions específiques dels camins i circuits eulerians i hamiltonians.</li>
+<li><strong>Colorejat de grafs</strong>: nombre mínim de colors per a pintar els nodes d'un graf de manera que dos nodes adjacents no tinguin el mateix color.</li>
+<li><strong>Ordenació topològica</strong>: trobar un ordre lineal dels nodes d'un graf dirigit acíclic.</li>
+<li><strong>Flux màxim</strong>: trobar el flux màxim entre dos nodes.</li>
+</ul>
+<p>Més endavant veurem quins algorismes podem utilitzar per a resoldre aquests problemes de manera eficient. Per ara, és important entendre com es representen els grafs i quins són els seus components bàsics, ja que això ens permetrà aplicar els algorismes de cerca de manera efectiva.</p>
+<h2 id="arbres">Arbres</h2>
+<p>Un <strong>arbre</strong> és un tipus especial de graf que té una estructura jeràrquica. Un arbre està format per nodes, on cada node pot tenir zero o més nodes fills, però només un node pare. El node superior es coneix com a <strong>arrel</strong> de l'arbre, i els nodes sense fills es coneixen com a <strong>fulles</strong>.</p>
+<p>Un arbre és un graf amb les següents característiques:</p>
+<ul>
+<li>És connex: hi ha un camí entre qualsevol parell de nodes.</li>
+<li>És acíclic: no conté cicles (en este cas, arestes d'un node a ell mateix).</li>
+<li>No és dirigit: les arestes no tenen una direcció específica.</li>
+<li>És únic: hi ha un camí únic entre qualsevol parell de nodes.</li>
+</ul>
+<p>En general els arbres s'utilitzen per a representar estructures jeràrquiques, com ara sistemes de fitxers, organigrames, arbres de decisió, etc.</p>
+<p><img alt="Arbre" src="imatges/arbre.png" /></p>
+<h3 id="tipus-darbres">Tipus d'arbres</h3>
+<ul>
+<li><strong>Generals</strong>: Un arbre general és aquell en què cada node pot tenir qualsevol nombre de fills. És el tipus d'arbre més comú i es pot utilitzar per a representar estructures jeràrquiques complexes.</li>
+<li><strong>Binari</strong>: Un arbre binari és aquell en què cada node pot tenir com a màxim dos fills, anomenats fill esquerre i fill dret. Els arbres binaris són molt utilitzats en informàtica, ja que permeten una cerca eficient i una representació compacta de dades.</li>
+<li><strong>Arbres binaris de cerca (BST)</strong>: Un arbre binari de cerca és un arbre binari en què els nodes estan ordenats de manera que el valor de cada node és major que els valors dels seus fills esquerre i menor que els valors dels seus fills dret. Això permet una cerca eficient de valors.</li>
+<li><strong>n-ari</strong>: Un arbre n-ari és aquell en què cada node pot tenir com a màxim n fills. És una generalització dels arbres binaris i es pot utilitzar per a representar estructures jeràrquiques amb més de dos fills per node.</li>
+<li><strong>Heaps</strong>: són arbres binaris balancejats que compleixen una propietat addicional. Els heaps es poden utilitzar per a implementar cues de prioritat.</li>
+</ul>
+<p>En general els arbres més utilitzats en algorismes de cerca són els arbres binaris de cerca i els arbres n-aris. Sobretot els BST són especialment útils per a cerques eficients, ja que permeten una cerca, inserció i eliminació de valors en temps O(log n) en el millor dels casos.</p>
+<p><img alt="Arbre binari de cerca" src="imatges/u03-01-07.jpg" /></p>
+<h3 id="representacio-darbres-amb-estructures-de-dades">Representació d'arbres amb estructures de dades</h3>
+<p>Els arbres es poden representar de diverses maneres, encara que la més comuna és mitjançant una llista enllaçada on cada node té un valor i referències als seus nodes fills. Per exemple, un node d'un arbre binari pot tenir la següent estructura:</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, valor):
+        self.valor = valor
+        self.fill_esquerre = None
+        self.fill_dret = None
+</code></pre>
+<p>I ara, implementar un arbre binari de cerca seria tan senzill com crear una classe que continga un node arrel i mètodes per a afegir nodes, cercar valors, etc. Per exemple:</p>
+<pre><code class="language-python">class ArbreBinari:
+    def __init__(self):
+        self.arrel = None # inicialitzem l'arbre amb l'arrel com a None (buit)
+
+    def afegir(self, valor):
+        if self.arrel is None: # si l'arbre està buit, el nou valor es converteix en l'arrel
+            self.arrel = Node(valor)
+        else: # si l'arbre ja té nodes, afegim el valor de manera recursiva per a col·locar-lo en la posició correcta
+            self._afegir_recursiu(self.arrel, valor)
+
+    def _afegir_recursiu(self, node, valor):
+        if valor &lt; node.valor: # si el valor és menor que el node actual, anem al fill esquerre
+            if node.fill_esquerre is None: # si no hi ha fill esquerre, inserim el nou node com a fill esquerre
+                node.fill_esquerre = Node(valor)
+            else: # si ja hi ha fill esquerre, repetim l'operació amb el fill esquerre
+                self._afegir_recursiu(node.fill_esquerre, valor)
+        else: # si el valor és major o igual que el node actual, anem al fill dret
+            if node.fill_dret is None: # si no hi ha fill dret, inserim el nou node com a fill dret
+                node.fill_dret = Node(valor)
+            else: # si ja hi ha fill dret, repetim l'operació amb el fill dret
+                self._afegir_recursiu(node.fill_dret, valor)
+</code></pre>
+<ul>
+<li>L'arbre té un node arrel, inicialment buit.</li>
+<li>El mètode <code>afegir</code> permet afegir un valor a l'arbre. Si l'arbre està buit, el valor afegit se converteix en el node arrel.</li>
+<li>Si l'arbre ja té nodes, el mètode <code>_afegir_recursiu</code> s'encarrega de col·locar el nou valor en la posició correcta segons les regles d'un arbre binari de cerca: <ul>
+<li>si el valor és menor que el node actual i no hi ha fill esquerre, inserim el nou node com a fill esquerre del node actual</li>
+<li>si el valor és menor que el node actual i ja hi ha fill esquerre, repetim l'operació afegir_recursiu amb el fill esquerre</li>
+<li>si el valor és major que el node actual i no hi ha fill dret, inserim el nou node com a fill dret del node actual</li>
+<li>si el valor és major que el node actual i ja hi ha fill dret, repetim l'operació afegir_recursiu amb el fill dret</li>
+</ul>
+</li>
+</ul>
+<h3 id="recorregut-darbres">Recorregut d'arbres</h3>
+<p>Per recórrer un arbre, hi ha diverses estratègies, les més comunes són:</p>
+<ul>
+<li><strong>Preordre</strong>: Visitem el node actual, després el fill esquerre i finalment el fill dret. Això és útil per a crear una còpia de l'arbre o per a imprimir els nodes en ordre.</li>
+<li><strong>Inordre</strong>: Visitem primer el fill esquerre, després el node actual i finalment el fill dret. Això és útil per a obtenir els valors d'un arbre binari de cerca en ordre ascendent.</li>
+<li><strong>Postordre</strong>: Visitem primer el fill esquerre, després el fill dret i finalment el node actual. Això és útil per a eliminar nodes de l'arbre o per a calcular valors agregats.</li>
+</ul>
+<p>Si l'arbre és un arbre binari de cerca:</p>
+<ul>
+<li>el recorregut <strong>inordre</strong> ens donarà els valors en ordre ascendent. Això és perquè els valors dels nodes del fill esquerre són sempre menors que el valor del node actual, i els valors dels nodes del fill dret són sempre majors.</li>
+<li>el recorregut <strong>preordre</strong> ens donarà els valors en l'ordre en què es van afegir a l'arbre, començant per l'arrel.</li>
+<li>el recorregut <strong>postordre</strong> ens donarà els valors en l'ordre en què es van eliminar de l'arbre, començant pels nodes fulles i acabant per l'arrel.</li>
+<li>si volem <strong>trobar un valor concret</strong>, podem utilitzar un recorregut <strong>binaritzat</strong>: com que els arbres binaris de cerca estan ordenats, podem comparar el valor que busquem amb el valor del node actual i decidir si continuar buscant al fill esquerre o al fill dret. Això ens permet reduir el nombre de nodes que hem de visitar i fer la cerca més eficient.</li>
+</ul>
+<h3 id="exercici">Exercici</h3>
+<p>Fes un programa en Python que cree l'arbre que hem vist en la imatge anterior, amb exactamente el mateix contingut, i fes una funcio que mostre els valors en ordre ascendent i una altra en ordre descendent.</p>
+<h2 id="llistes-piles-i-cues">Llistes, piles i cues</h2>
+<p>Les <strong>llistes</strong>, <strong>piles</strong> i <strong>cues</strong> són estructures de dades fonamentals que ens permeten emmagatzemar i gestionar col·leccions d'elements de manera eficient. Cada una d'elles té les seues pròpies característiques i usos específics que veurem a continuació.</p>
+<h3 id="llistes">Llistes</h3>
+<p>Una <strong>llista</strong> és una estructura de dades que permet emmagatzemar una col·lecció d'elements. Les llistes poden ser dinàmiques, és a dir, poden canviar de mida durant l'execució del programa, o estàtiques, on la mida es defineix en el moment de la creació. </p>
+<blockquote>
+<p>En Python les llistes són més útils que els vectors quan treballem amb dades molt volàtils, ja que les llistes poden canviar de mida i permeten afegir o eliminar elements amb més facilitat</p>
+</blockquote>
+<p>Una <strong>llista enllaçada</strong> és una llista on cada element (o node) conté un valor i una referència al següent element de la llista. Això permet una inserció i eliminació eficient d'elements, encara que accedir a un element específic pot ser més lent que en una llista estàtica ja que el recorregut sempre és sequencial. Sempre serà més útil, per tant, si hi ha un cert tipus d'ordenació.</p>
+<p><img alt="Llista enllaçada" src="imatges/u03-01-08.jpg" /></p>
+<p>En Python, podem implementar una llista enllaçada utilitzant classes per als nodes i la llista. Cada node té un valor i una referència al següent node. </p>
+<pre><code class="language-python">class Node:
+    def __init__(self, valor):
+        self.valor = valor
+        self.seguent = None
+
+class LlistaEnllaçada:
+    def __init__(self):
+        self.cap = None
+
+    def afegir(self, valor):
+        nou_node = Node(valor)
+        if not self.cap:
+            self.cap = nou_node
+        else:
+            node_actual = self.cap
+            while node_actual.seguent:
+                node_actual = node_actual.seguent
+            node_actual.seguent = nou_node
+
+    def imprimir(self):
+        node_actual = self.cap
+        while node_actual:
+            print(node_actual.valor)
+            node_actual = node_actual.seguent
+</code></pre>
+<p>Si volem mantindre la llista ordenada, hem d'implementar mètodes per a inserir un node en una posició específica. Potser també voldrem eliminar nodes. Tot això ho aconseguim simplement canviant les referències dels nodes implicats.</p>
+<ul>
+<li>per a <strong>inserir</strong> un node, recorrem la llista fins a trobar la posició correcta. El node següent del node anterior on volem fer la inserció serà el node següent del nou node. El node següent del node anterior serà el nou node.</li>
+<li>per a <strong>eliminar</strong> un node, recorrem la llista fins a trobar el node que volem eliminar. Modificarem la referència del node anterior per a que apunte al següent del node eliminar (així ens saltem el node eliminat).</li>
+</ul>
+<p>En Python tenim la classe <strong>List</strong> per a guardar col·leccions d'elements. Aquesta classe proporciona mètodes per a afegir, eliminar i accedir als elements de manera eficient. Per a llistes enllaçades no hi ha cap estructura concreta però ja hem vist com implementar-la utilitzant classes.</p>
+<p>En Python també podem implementar una llista utilitzant la classe <strong><em>collections.deque</em></strong>. Amb <strong>deque</strong> podem crear una llista <strong>doblement enllaçada</strong> (cada element guarda dues referències, al següent i també a l'anterior) que permet afegir i eliminar elements tant pel principi (<strong>appendleft</strong>) com pel final (<strong>append</strong>) de la llista. Això és útil per a implementar estructures de dades com piles i cues, que veurem més endavant. Per a afegir elements en qualsevol posició hem de fer com hem vist abans, recorrent la llista fins a trobar la posició correcta i afegint/eliminant el node corresponent.</p>
+<h3 id="piles">Piles</h3>
+<p>Una <strong>pila</strong> és un tipus especial de llista que segueix el principi <strong>LIFO</strong> (Last In, First Out). És a dir, l'últim element afegit és el primer en ser eliminat. Això implica que els elements s'afegixen i s'eliminen sempre pel mateix extrem de la pila.</p>
+<p><img alt="Pila" src="imatges/u03-01-09.jpg" /></p>
+<p>Si volem implementar una pila utilitzant <strong><em>deque</em></strong>, afegirem i eliminarem els elements sempre pel final de la llista.</p>
+<pre><code class="language-python">from collections import deque
+
+pila = deque()
+
+# Afegir elements a la pila
+pila.append(1)
+pila.append(2)
+pila.append(3)
+
+# Eliminar elements de la pila
+print(pila.pop())  # mostra el 3 i l'elimina
+print(pila.pop())  # mostra el 2 i l'elimina
+print(pila.pop())  # mostra el 1 i l'elimina
+</code></pre>
+<h3 id="cues">Cues</h3>
+<p>Una <strong>cua</strong> és un altre tipus especial de llista que segueix el principi <strong>FIFO</strong> (First In, First Out). És a dir, el primer element afegit és el primer en ser eliminat. Això implica que els elements s'afegiran pel principi de la cua i s'eliminaran pel final. Ací podem utilitzar també la classe <strong><em>deque</em></strong> afegint els elements amb <strong>append</strong> i eliminant-los amb <strong>popleft</strong>.</p>
+<p><img alt="Cua" src="imatges/u03-01-10.jpg" /></p>
+<pre><code class="language-python">from collections import deque
+
+cua = deque()
+
+# Afegir elements a la cua
+cua.append(1)
+cua.append(2)
+cua.append(3)
+
+# Eliminar elements de la cua
+print(cua.popleft())  # mostra el 1 i l'elimina
+print(cua.popleft())  # mostra el 2 i l'elimina
+print(cua.popleft())  # mostra el 3 i l'elimina
+</code></pre>
+<h2 id="complexitat-computacional">Complexitat computacional</h2>
+<p>La <strong>complexitat computacional</strong> és una mesura de l'eficiència d'un algorisme en termes de temps i espai que necessita per a resoldre un problema. És important perquè ens ajuda a comparar diferents algorismes i a triar el més adequat per a un problema concret.</p>
+<h3 id="complexitat-temporal">Complexitat temporal</h3>
+<p>La <strong>complexitat temporal</strong> és una mesura de l'eficiència d'un algorisme en funció de la quantitat de dades amb les quals treballem. Normalment utilitzem la <strong>notació asintòtica</strong> per a descriure la complexitat temporal, que s'escriu O(x) on x és una funció sobre la quantitat d'elements. És important saber que la complexitat temporal no ens diu el temps exacte que trigarà un algorisme, sinó com creix el temps d'execució a mesura que augmenta la quantitat de dades.</p>
+<p>Anem a veure un exemple senzill. Imaginem un vector. Si volem buscar un element i sabem que quina posició està, la complexitat temporal seria <strong>O(1)</strong> perquè només necessitem un temps per a trobar-lo. Si no sabem la posició, la complexitat temporal seria <strong>O(n)</strong>, que vol dir que en el pitjor dels casos necessitarem tants passos com elements té el vector.</p>
+<p>Un exemple un poc més complicat però senzill d'entendre. En un arbre binari de cerca, la complexitat temporal seria <strong>O(log n)</strong>, ja que cada vegada que comparem un valor reduïm a la meitat el nombre de nodes que hem de visitar. Teniu en compte que, en informàtica, la notació <strong>log</strong> (sense base) normalment es refereix al logaritme en base 2, ja que estem parlant de cerques binàries. Això vol dir que si tenim un arbre amb 1000 nodes, necessitarem com a màxim 10 passos per a trobar un valor (ja que 2^10 = 1024).</p>
+<p>En el pitjor dels casos, si un arbre està desbalancejat i té una forma lineal (com una llista), la complexitat temporal seria <strong>O(n)</strong> igual que en qualsevol vector.</p>
+<h3 id="complexitat-espacial">Complexitat espacial</h3>
+<p>La <strong>complexitat espacial</strong> és una mesura de l'eficiència d'un algorisme en funció de la quantitat d'espai de memòria que necessita per a resoldre un problema. Igual que amb la complexitat temporal, utilitzem la notació asintòtica per a descriure la complexitat espacial.</p>
+<p>La complexitat espacial se calcula en funció de la quantitat de dades però també de les estructures i algorismes que utilitzem. Per exemple, si utilitzem un vector per a emmagatzemar dades, la complexitat espacial seria <strong>O(n)</strong>, ja que necessitem espai per a cada element del vector. Si utilitzem una llista enllaçada, la complexitat espacial també seria <strong>O(n)</strong>, però amb un cost addicional per a les referències als nodes. Ho anirem veient a mesura que anem treballant diferents algorismes.</p>
+<h2 id="exercicis">Exercicis</h2>
+<p>En un document adjunt teniu una sèrie d'exercicis per a practicar els conceptes que hem vist en esta unitat.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
