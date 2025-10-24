@@ -178,7 +178,7 @@ class Graf:
     def __init__(self):
         self.adjacencia = {}
 
-    def afegir_aresta(self, node1, node2, pes=1):
+    def _afegir_aresta(self, node1, node2, pes=1):
         # la funció permet afegir una aresta entre dos nodes amb un pes opcional (per defecte és 1)
         # Si els nodes no existeixen, els inicialitzem
         # node1 i node2 poden ser qualsevol tipus de dades (números, cadenes, etc.) Les guardem com a claus del diccionari
@@ -192,7 +192,7 @@ class Graf:
         self.adjacencia[node1].append((node2, pes))
         self.adjacencia[node2].append((node1, pes))  # Si el graf és no dirigit
 
-    def mostrar(self):
+    def _mostrar(self):
         for node, connexions in self.adjacencia.items():
             print(f"{node}: {connexions}")
 ```
@@ -218,10 +218,10 @@ Un **arbre** és un tipus especial de graf que té una estructura jeràrquica. U
 
 Un arbre és un graf amb les següents característiques:
 
-- És connex: hi ha un camí entre qualsevol parell de nodes.
-- És acíclic: no conté cicles (en este cas, arestes d'un node a ell mateix).
-- No és dirigit: les arestes no tenen una direcció específica.
-- És únic: hi ha un camí únic entre qualsevol parell de nodes.
+- És **connex**: hi ha un camí entre qualsevol parell de nodes.
+- És **acíclic**: no conté cicles (en este cas, no hi ha arestes d'un node a ell mateix i tampoc camins que tornen al mateix node passant per altres si no és desfent el mateix camí d'anada).
+- **No és dirigit**: les arestes no tenen una direcció específica.
+- És **únic**: hi ha un camí únic entre qualsevol parell de nodes.
 
 En general els arbres s'utilitzen per a representar estructures jeràrquiques, com ara sistemes de fitxers, organigrames, arbres de decisió, etc.
 
@@ -229,11 +229,13 @@ En general els arbres s'utilitzen per a representar estructures jeràrquiques, c
 
 ### Tipus d'arbres
 
-- **Generals**: Un arbre general és aquell en què cada node pot tenir qualsevol nombre de fills. És el tipus d'arbre més comú i es pot utilitzar per a representar estructures jeràrquiques complexes.
+- **Generals**: Un arbre general és aquell en què cada node pot tenir qualsevol quantitat de fills. És el tipus d'arbre més comú i es pot utilitzar per a representar estructures jeràrquiques complexes.
 - **Binari**: Un arbre binari és aquell en què cada node pot tenir com a màxim dos fills, anomenats fill esquerre i fill dret. Els arbres binaris són molt utilitzats en informàtica, ja que permeten una cerca eficient i una representació compacta de dades.
-- **Arbres binaris de cerca (BST)**: Un arbre binari de cerca és un arbre binari en què els nodes estan ordenats de manera que el valor de cada node és major que els valors dels seus fills esquerre i menor que els valors dels seus fills dret. Això permet una cerca eficient de valors.
-- **n-ari**: Un arbre n-ari és aquell en què cada node pot tenir com a màxim n fills. És una generalització dels arbres binaris i es pot utilitzar per a representar estructures jeràrquiques amb més de dos fills per node.
-* **Heaps**: són arbres binaris balancejats que compleixen una propietat addicional. Els heaps es poden utilitzar per a implementar cues de prioritat.
+- **Arbres binaris de cerca (BST)**: Un arbre binari de cerca és un arbre binari en què els nodes estan ordenats de manera que el valor de cada node és major que el valor del seu fill esquerre i menor que el valor del seu fill dret. Això permet una cerca eficient de valors.
+- **n-ari**: Un arbre n-ari és aquell en què cada node pot tenir com a màxim *n* fills. És una generalització dels arbres binaris i es pot utilitzar per a representar estructures jeràrquiques amb més de dos fills per node.
+* **Heaps**: són arbres binaris balancejats que compleixen alguna propietat addicional. Els heaps es poden utilitzar per a implementar cues de prioritat. Exemples de heaps són els **max-heaps** (cada node pare és major que tots els seus fills) i els **min-heaps** (cada node pare és menor que tots els seus fills).
+
+[Heaps en Wikipedia](https://es.wikipedia.org/wiki/Montículo_(informática))
 
 En general els arbres més utilitzats en algorismes de cerca són els arbres binaris de cerca i els arbres n-aris. Sobretot els BST són especialment útils per a cerques eficients, ja que permeten una cerca, inserció i eliminació de valors en temps O(log n) en el millor dels casos.
 
@@ -258,7 +260,7 @@ class ArbreBinari:
     def __init__(self):
         self.arrel = None # inicialitzem l'arbre amb l'arrel com a None (buit)
 
-    def afegir(self, valor):
+    def _afegir(self, valor):
         if self.arrel is None: # si l'arbre està buit, el nou valor es converteix en l'arrel
             self.arrel = Node(valor)
         else: # si l'arbre ja té nodes, afegim el valor de manera recursiva per a col·locar-lo en la posició correcta
@@ -281,11 +283,11 @@ class ArbreBinari:
 - El mètode `afegir` permet afegir un valor a l'arbre. Si l'arbre està buit, el valor afegit se converteix en el node arrel.
 - Si l'arbre ja té nodes, el mètode `_afegir_recursiu` s'encarrega de col·locar el nou valor en la posició correcta segons les regles d'un arbre binari de cerca: 
     - si el valor és menor que el node actual i no hi ha fill esquerre, inserim el nou node com a fill esquerre del node actual
-    - si el valor és menor que el node actual i ja hi ha fill esquerre, repetim l'operació afegir_recursiu amb el fill esquerre
+    - si el valor és menor que el node actual i ja hi ha fill esquerre, repetim l'operació  `_afegir_recursiu` amb el fill esquerre
     - si el valor és major que el node actual i no hi ha fill dret, inserim el nou node com a fill dret del node actual
-    - si el valor és major que el node actual i ja hi ha fill dret, repetim l'operació afegir_recursiu amb el fill dret
+    - si el valor és major que el node actual i ja hi ha fill dret, repetim l'operació `_afegir_recursiu` amb el fill dret
 
-### Recorregut d'arbres
+### Recorregut d'arbres binaris
 
 Per recórrer un arbre, hi ha diverses estratègies, les més comunes són:
 
@@ -300,9 +302,15 @@ Si l'arbre és un arbre binari de cerca:
 - el recorregut **postordre** ens donarà els valors en l'ordre en què es van eliminar de l'arbre, començant pels nodes fulles i acabant per l'arrel.
 - si volem **trobar un valor concret**, podem utilitzar un recorregut **binaritzat**: com que els arbres binaris de cerca estan ordenats, podem comparar el valor que busquem amb el valor del node actual i decidir si continuar buscant al fill esquerre o al fill dret. Això ens permet reduir el nombre de nodes que hem de visitar i fer la cerca més eficient.
 
-### Exercici
+### Exercicis
 
-Fes un programa en Python que cree l'arbre que hem vist en la imatge anterior, amb exactamente el mateix contingut, i fes una funcio que mostre els valors en ordre ascendent i una altra en ordre descendent.
+Ara intenteu fer els exercicis del quadern Jupyter `arbres.ipynb` que trobareu a Aules. Veureu que ja teniu la classe `Node`i la classe `ArbreBinariCerca` amb els mètodes necessaris per afegir nodes i recórrer l'arbre en inordre. Feu els exercicis que falten.
+
+> Podeu utilitzar les llibreries externes de Python **anytree** o **binarytree** per a treballar amb arbres de manera més senzilla i eficient. Estes llibreries proporcionen funcions i mètodes per a crear, manipular i visualitzar arbres de manera senzilla i bastant intuïtiva. Si voleu investigar un poc, ací teniu els enllaços.
+
+[anytree en PyPI](https://pypi.org/project/anytree/)
+
+[binarytree en PyPI](https://pypi.org/project/binarytree/)
 
 ## Llistes, piles i cues
 
