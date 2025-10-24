@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
       
       
 
@@ -421,18 +421,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#recorregut-darbres" class="md-nav__link">
+  <a href="#recorregut-darbres-binaris" class="md-nav__link">
     <span class="md-ellipsis">
-      Recorregut d'arbres
+      Recorregut d'arbres binaris
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercici" class="md-nav__link">
+  <a href="#exercicis" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercici
+      Exercicis
     </span>
   </a>
   
@@ -519,7 +519,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercicis" class="md-nav__link">
+  <a href="#exercicis_1" class="md-nav__link">
     <span class="md-ellipsis">
       Exercicis
     </span>
@@ -650,18 +650,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#recorregut-darbres" class="md-nav__link">
+  <a href="#recorregut-darbres-binaris" class="md-nav__link">
     <span class="md-ellipsis">
-      Recorregut d'arbres
+      Recorregut d'arbres binaris
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercici" class="md-nav__link">
+  <a href="#exercicis" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercici
+      Exercicis
     </span>
   </a>
   
@@ -748,7 +748,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercicis" class="md-nav__link">
+  <a href="#exercicis_1" class="md-nav__link">
     <span class="md-ellipsis">
       Exercicis
     </span>
@@ -859,7 +859,7 @@ E:
     def __init__(self):
         self.adjacencia = {}
 
-    def afegir_aresta(self, node1, node2, pes=1):
+    def _afegir_aresta(self, node1, node2, pes=1):
         # la funció permet afegir una aresta entre dos nodes amb un pes opcional (per defecte és 1)
         # Si els nodes no existeixen, els inicialitzem
         # node1 i node2 poden ser qualsevol tipus de dades (números, cadenes, etc.) Les guardem com a claus del diccionari
@@ -873,7 +873,7 @@ E:
         self.adjacencia[node1].append((node2, pes))
         self.adjacencia[node2].append((node1, pes))  # Si el graf és no dirigit
 
-    def mostrar(self):
+    def _mostrar(self):
         for node, connexions in self.adjacencia.items():
             print(f&quot;{node}: {connexions}&quot;)
 </code></pre>
@@ -894,21 +894,22 @@ E:
 <p>Un <strong>arbre</strong> és un tipus especial de graf que té una estructura jeràrquica. Un arbre està format per nodes, on cada node pot tenir zero o més nodes fills, però només un node pare. El node superior es coneix com a <strong>arrel</strong> de l'arbre, i els nodes sense fills es coneixen com a <strong>fulles</strong>.</p>
 <p>Un arbre és un graf amb les següents característiques:</p>
 <ul>
-<li>És connex: hi ha un camí entre qualsevol parell de nodes.</li>
-<li>És acíclic: no conté cicles (en este cas, arestes d'un node a ell mateix).</li>
-<li>No és dirigit: les arestes no tenen una direcció específica.</li>
-<li>És únic: hi ha un camí únic entre qualsevol parell de nodes.</li>
+<li>És <strong>connex</strong>: hi ha un camí entre qualsevol parell de nodes.</li>
+<li>És <strong>acíclic</strong>: no conté cicles (en este cas, no hi ha arestes d'un node a ell mateix i tampoc camins que tornen al mateix node passant per altres si no és desfent el mateix camí d'anada).</li>
+<li><strong>No és dirigit</strong>: les arestes no tenen una direcció específica.</li>
+<li>És <strong>únic</strong>: hi ha un camí únic entre qualsevol parell de nodes.</li>
 </ul>
 <p>En general els arbres s'utilitzen per a representar estructures jeràrquiques, com ara sistemes de fitxers, organigrames, arbres de decisió, etc.</p>
 <p><img alt="Arbre" src="imatges/arbre.png" /></p>
 <h3 id="tipus-darbres">Tipus d'arbres</h3>
 <ul>
-<li><strong>Generals</strong>: Un arbre general és aquell en què cada node pot tenir qualsevol nombre de fills. És el tipus d'arbre més comú i es pot utilitzar per a representar estructures jeràrquiques complexes.</li>
+<li><strong>Generals</strong>: Un arbre general és aquell en què cada node pot tenir qualsevol quantitat de fills. És el tipus d'arbre més comú i es pot utilitzar per a representar estructures jeràrquiques complexes.</li>
 <li><strong>Binari</strong>: Un arbre binari és aquell en què cada node pot tenir com a màxim dos fills, anomenats fill esquerre i fill dret. Els arbres binaris són molt utilitzats en informàtica, ja que permeten una cerca eficient i una representació compacta de dades.</li>
-<li><strong>Arbres binaris de cerca (BST)</strong>: Un arbre binari de cerca és un arbre binari en què els nodes estan ordenats de manera que el valor de cada node és major que els valors dels seus fills esquerre i menor que els valors dels seus fills dret. Això permet una cerca eficient de valors.</li>
-<li><strong>n-ari</strong>: Un arbre n-ari és aquell en què cada node pot tenir com a màxim n fills. És una generalització dels arbres binaris i es pot utilitzar per a representar estructures jeràrquiques amb més de dos fills per node.</li>
-<li><strong>Heaps</strong>: són arbres binaris balancejats que compleixen una propietat addicional. Els heaps es poden utilitzar per a implementar cues de prioritat.</li>
+<li><strong>Arbres binaris de cerca (BST)</strong>: Un arbre binari de cerca és un arbre binari en què els nodes estan ordenats de manera que el valor de cada node és major que el valor del seu fill esquerre i menor que el valor del seu fill dret. Això permet una cerca eficient de valors.</li>
+<li><strong>n-ari</strong>: Un arbre n-ari és aquell en què cada node pot tenir com a màxim <em>n</em> fills. És una generalització dels arbres binaris i es pot utilitzar per a representar estructures jeràrquiques amb més de dos fills per node.</li>
+<li><strong>Heaps</strong>: són arbres binaris balancejats que compleixen alguna propietat addicional. Els heaps es poden utilitzar per a implementar cues de prioritat. Exemples de heaps són els <strong>max-heaps</strong> (cada node pare és major que tots els seus fills) i els <strong>min-heaps</strong> (cada node pare és menor que tots els seus fills).</li>
 </ul>
+<p><a href="https://es.wikipedia.org/wiki/Montículo_(informática)">Heaps en Wikipedia</a></p>
 <p>En general els arbres més utilitzats en algorismes de cerca són els arbres binaris de cerca i els arbres n-aris. Sobretot els BST són especialment útils per a cerques eficients, ja que permeten una cerca, inserció i eliminació de valors en temps O(log n) en el millor dels casos.</p>
 <p><img alt="Arbre binari de cerca" src="imatges/u03-01-07.jpg" /></p>
 <h3 id="representacio-darbres-amb-estructures-de-dades">Representació d'arbres amb estructures de dades</h3>
@@ -924,7 +925,7 @@ E:
     def __init__(self):
         self.arrel = None # inicialitzem l'arbre amb l'arrel com a None (buit)
 
-    def afegir(self, valor):
+    def _afegir(self, valor):
         if self.arrel is None: # si l'arbre està buit, el nou valor es converteix en l'arrel
             self.arrel = Node(valor)
         else: # si l'arbre ja té nodes, afegim el valor de manera recursiva per a col·locar-lo en la posició correcta
@@ -947,13 +948,13 @@ E:
 <li>El mètode <code>afegir</code> permet afegir un valor a l'arbre. Si l'arbre està buit, el valor afegit se converteix en el node arrel.</li>
 <li>Si l'arbre ja té nodes, el mètode <code>_afegir_recursiu</code> s'encarrega de col·locar el nou valor en la posició correcta segons les regles d'un arbre binari de cerca: <ul>
 <li>si el valor és menor que el node actual i no hi ha fill esquerre, inserim el nou node com a fill esquerre del node actual</li>
-<li>si el valor és menor que el node actual i ja hi ha fill esquerre, repetim l'operació afegir_recursiu amb el fill esquerre</li>
+<li>si el valor és menor que el node actual i ja hi ha fill esquerre, repetim l'operació  <code>_afegir_recursiu</code> amb el fill esquerre</li>
 <li>si el valor és major que el node actual i no hi ha fill dret, inserim el nou node com a fill dret del node actual</li>
-<li>si el valor és major que el node actual i ja hi ha fill dret, repetim l'operació afegir_recursiu amb el fill dret</li>
+<li>si el valor és major que el node actual i ja hi ha fill dret, repetim l'operació <code>_afegir_recursiu</code> amb el fill dret</li>
 </ul>
 </li>
 </ul>
-<h3 id="recorregut-darbres">Recorregut d'arbres</h3>
+<h3 id="recorregut-darbres-binaris">Recorregut d'arbres binaris</h3>
 <p>Per recórrer un arbre, hi ha diverses estratègies, les més comunes són:</p>
 <ul>
 <li><strong>Preordre</strong>: Visitem el node actual, després el fill esquerre i finalment el fill dret. Això és útil per a crear una còpia de l'arbre o per a imprimir els nodes en ordre.</li>
@@ -967,8 +968,13 @@ E:
 <li>el recorregut <strong>postordre</strong> ens donarà els valors en l'ordre en què es van eliminar de l'arbre, començant pels nodes fulles i acabant per l'arrel.</li>
 <li>si volem <strong>trobar un valor concret</strong>, podem utilitzar un recorregut <strong>binaritzat</strong>: com que els arbres binaris de cerca estan ordenats, podem comparar el valor que busquem amb el valor del node actual i decidir si continuar buscant al fill esquerre o al fill dret. Això ens permet reduir el nombre de nodes que hem de visitar i fer la cerca més eficient.</li>
 </ul>
-<h3 id="exercici">Exercici</h3>
-<p>Fes un programa en Python que cree l'arbre que hem vist en la imatge anterior, amb exactamente el mateix contingut, i fes una funcio que mostre els valors en ordre ascendent i una altra en ordre descendent.</p>
+<h3 id="exercicis">Exercicis</h3>
+<p>Ara intenteu fer els exercicis del quadern Jupyter <code>arbres.ipynb</code> que trobareu a Aules. Veureu que ja teniu la classe <code>Node</code>i la classe <code>ArbreBinariCerca</code> amb els mètodes necessaris per afegir nodes i recórrer l'arbre en inordre. Feu els exercicis que falten.</p>
+<blockquote>
+<p>Podeu utilitzar les llibreries externes de Python <strong>anytree</strong> o <strong>binarytree</strong> per a treballar amb arbres de manera més senzilla i eficient. Estes llibreries proporcionen funcions i mètodes per a crear, manipular i visualitzar arbres de manera senzilla i bastant intuïtiva. Si voleu investigar un poc, ací teniu els enllaços.</p>
+</blockquote>
+<p><a href="https://pypi.org/project/anytree/">anytree en PyPI</a></p>
+<p><a href="https://pypi.org/project/binarytree/">binarytree en PyPI</a></p>
 <h2 id="llistes-piles-i-cues">Llistes, piles i cues</h2>
 <p>Les <strong>llistes</strong>, <strong>piles</strong> i <strong>cues</strong> són estructures de dades fonamentals que ens permeten emmagatzemar i gestionar col·leccions d'elements de manera eficient. Cada una d'elles té les seues pròpies característiques i usos específics que veurem a continuació.</p>
 <h3 id="llistes">Llistes</h3>
@@ -1056,7 +1062,7 @@ print(cua.popleft())  # mostra el 3 i l'elimina
 <h3 id="complexitat-espacial">Complexitat espacial</h3>
 <p>La <strong>complexitat espacial</strong> és una mesura de l'eficiència d'un algorisme en funció de la quantitat d'espai de memòria que necessita per a resoldre un problema. Igual que amb la complexitat temporal, utilitzem la notació asintòtica per a descriure la complexitat espacial.</p>
 <p>La complexitat espacial se calcula en funció de la quantitat de dades però també de les estructures i algorismes que utilitzem. Per exemple, si utilitzem un vector per a emmagatzemar dades, la complexitat espacial seria <strong>O(n)</strong>, ja que necessitem espai per a cada element del vector. Si utilitzem una llista enllaçada, la complexitat espacial també seria <strong>O(n)</strong>, però amb un cost addicional per a les referències als nodes. Ho anirem veient a mesura que anem treballant diferents algorismes.</p>
-<h2 id="exercicis">Exercicis</h2>
+<h2 id="exercicis_1">Exercicis</h2>
 <p>En un document adjunt teniu una sèrie d'exercicis per a practicar els conceptes que hem vist en esta unitat.</p>
 
 
