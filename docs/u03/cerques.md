@@ -12,7 +12,7 @@ Com que tot el que anem a veure s'utilitza en la resolució de problemes, és im
 
 En el context de la intel·ligència artificial i la informàtica, un problema es pot definir com una situació inicial juntament amb una condició objectiu que volem assolir mitjançant una seqüència d'accions. Estes accions ens portaran des de la situació inicial fins a la situació objectiu. No tots els problemes són iguals, però en general és una bona manera de començar a pensar en la resolució de problemes. Ja en veurem d'altres.
 
-Un problema d'Este tipus sol estar compost de quatre elements principals:
+Un problema d'este tipus sol estar compost de quatre elements principals:
 
 - **L'estat inicial**: La configuració del sistema en el punt de partida.
 - **L'objectiu o estat final**: La configuració que volem assolir.
@@ -33,6 +33,8 @@ Exemples d'espais d'estats poden ser:
 
 Per exemple, en el problema del trencaclosques de les 8 reines, cada estat és una configuració de les reines sobre el tauler, i les accions són moviments de les reines que no violen les regles del joc.
 
+![Problema de les 8 reines](imatges/reines.png)
+
 > El problema de les 8 reines és un problema clàssic d'intel·ligència artificial on l'objectiu és col·locar 8 reines en un tauler d'escacs de manera que cap reina puga atacar a una altra. Això implica que no poden compartir la mateixa fila, columna o diagonal.
 
 ## Algorismes de cerca en l'espai d'estats
@@ -48,7 +50,11 @@ Els algorismes de cerca en l'espai d'estats poden ser de diferents tipus, depene
 - **Cerca de cost uniforme**: Explora els nodes en funció del cost acumulat des de l'inici.
 - **Cerca A***: Utilitza una funció de cost combinada que inclou tant el cost acumulat com una estimació heurística del cost restant.
 
-Anirem veient cadascun d'Estos algorismes en detall, incloent els seus avantatges i inconvenients, així com exemples d'aplicació. Ara, de moment, anem a introduir un altre concepte important. Les cerques poden ser **informades** o **no informades**. Podríem dir que les **no informades** són com anar a cegues provant alternatives, mentre que les **informades** utilitzen informació addicional per guiar d'alguna manera la cerca cap a la solució.
+Anirem veient cadascun d'estos algorismes en detall, incloent els seus avantatges i inconvenients, així com exemples d'aplicació. Ara, de moment, anem a parlar més a fons dels conceptes que hem introduït abans: les cerques poden ser **informades** o **no informades**. Podríem dir que les **no informades** són com anar a cegues provant alternatives, mentre que les **informades** utilitzen informació addicional per guiar d'alguna manera la cerca cap a la solució.
+
+![Cerca no informada](imatges/rumania_no_informada.jpg) Cerca no informada
+
+![Cerca informada](imatges/rumania_informada.jpg) Cerca informada
 
 ## Cerques no informades
 
@@ -67,35 +73,37 @@ La cerca **en amplària** explora tots els nodes a un determinat nivell de profu
 
 Este algorisme funciona utilitzant una cua, afegint els nodes fills d'un node abans d'expandir el següent node de la cua. És complet, és a dir, troba una solució si n'hi ha una, i és òptim si el cost de cada pas és igual. La principal limitació és el seu alt requeriment de memòria, especialment en espais d'estats amb un gran factor de ramificació.
 
+![Cerca en amplària](imatges/amplaria.png)
+
 **Estats repetits**
 
 En la cerca en amplària, és important gestionar els estats repetits per evitar l'exploració innecessària de nodes ja visitats. Això es pot fer mantenint una llista de nodes ja explorats (CLOSED) i una llista de nodes pendents d'explorar (OPEN). Quan es genera un nou node, es comprova si ja està en CLOSED o OPEN abans d'afegir-lo a OPEN.
 
-La llista OPEN se pot implementar com una cua de prioritats. S'extrau l'element de la cua amb la màxima prioritat d'acord amb una funció `f(n)` que ens torna un valor associat a cada node `n`. En la cerca en amplària, Esta funció pot ser simplement la profunditat del node, ja que es vol explorar primer els nodes més propers a l'arrel. En una cerca no informada, Esta funció no utilitza cap informació addicional sobre l'objectiu. En la cerca en amplària la funció f(n) ens diu simplement quina és la profunditat del node perquè no tenim més informació sobre el seu cost. Ja veurem com podem aplicar-la en cerques informades.
+La llista OPEN se pot implementar com una cua de prioritats. S'extrau l'element de la cua amb la màxima prioritat d'acord amb una funció `f(n)` que ens torna un valor associat a cada node `n`. En la cerca en amplària, esta funció pot ser simplement la profunditat del node, ja que es vol explorar primer els nodes més propers a l'arrel. En una cerca no informada, esta funció no utilitza cap informació addicional sobre l'objectiu. En la cerca en amplària la funció `f(n)` ens diu simplement quina és la profunditat del node perquè no tenim més informació sobre el seu cost. Ja veurem com podem aplicar-la en cerques informades.
 
-Veiem com funcionaria Este procés amb el següent pseudocodi:
+Veiem com funcionaria este procés amb el següent pseudocodi:
 
 ```plaintext
-function GRAPH-SEARCH (problema) return una solució o una fallada
+function GRAPH-SEARCH (problema) return // una solució o un error (no existeix solució)
   Inicialitzar la llista OPEN amb l'estat inicial del problema
   Inicialitzar la llista CLOSED a buit
   do
     if OPEN està buida 
       then return fallada
-    p <- pop (llista OPEN)
-    afegir p a la llista CLOSED
-    if p = estat final 
-      then return solució p
-    generar fills de p
-    per a cada fill n de p :
-      aplicar f(n)
+    node <- pop (llista OPEN)
+    afegir node a la llista CLOSED
+    if node = estat final 
+      then return solució node
+    generar fills de node
+    per a cada fill n de node :
+      aplicar f(n) en el cas que tots els nodes no tinguen el mateix cost
       if n no està en CLOSED then
-        if n no està en OPEN o (n està repetit en OPEN i f(n) és millor que el valor del nodeen OPEN) 
+        if n no està en OPEN o (n està repetit en OPEN i f(n) és millor que el valor del node en OPEN) 
           then inserir n en ordre creixent de f(n) en OPEN*
-      else f(n) és millor que el valor del node repetit en CLOSED 
+      else si f(n) és millor que el valor del node repetit en CLOSED 
         then escollir entre re-expandir n (inserir-ho en OPEN) o descartar-lo
   enddo
-* Com estem interessats a trobar únicament la primera solució, es pot eliminar n’ de la llista OPEN
+Si estem interessats a trobar únicament la primera solució, es poden eliminar els repetits de la llista OPEN i CLOSED sense necessitat de tornar a expandir-los
 ```
 
 ### Cerca en profunditat
@@ -120,6 +128,8 @@ Cerca_en_profunditat(estat_inicial):
         afegir veí a S
   retornar cap_solució
 ```
+
+![Cerca en profunditat](imatges/profunditat.png)
 
 #### Cerca en profunditat amb backtracking
 
