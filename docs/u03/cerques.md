@@ -255,7 +255,7 @@ Este càlcul es pot generalitzar per a qualsevol dimensió, on simplement es sum
 
 A diferència de la distància euclidiana, que mesura la distància més curta en línia recta entre dos punts, la distància Manhattan segueix camins paral·lels a les coordenades, com en un sistema de carrers d'una ciutat. Esta distància és molt utilitzada en aplicacions de ciències de dades, reconeixement de patrons i en jocs com el "Snake", on els moviments són limitats a direccions ortogonals.
 
-![Distancia manhatan](img/Manhattan_distance.png)
+![Distancia manhatan](imatges/Manhattan_distance.png)
 
 
 ## Conclusió
