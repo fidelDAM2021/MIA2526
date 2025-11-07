@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -564,7 +564,7 @@
 <p>Com que tot el que anem a veure s'utilitza en la resolució de problemes, és important que tinguem clar què és un problema i com es pot representar. En Este apartat, definirem què és un problema i com es pot representar mitjançant un espai d'estats. A més, veurem com els algorismes de cerca ens ajuden a explorar Este espai d'estats per trobar solucions. Més endavant també analitzarem altres tipus de cerques que no treballen estrictament amb espais d'estats.</p>
 <h3 id="que-es-un-problema">Què és un problema?</h3>
 <p>En el context de la intel·ligència artificial i la informàtica, un problema es pot definir com una situació inicial juntament amb una condició objectiu que volem assolir mitjançant una seqüència d'accions. Estes accions ens portaran des de la situació inicial fins a la situació objectiu. No tots els problemes són iguals, però en general és una bona manera de començar a pensar en la resolució de problemes. Ja en veurem d'altres.</p>
-<p>Un problema d'Este tipus sol estar compost de quatre elements principals:</p>
+<p>Un problema d'este tipus sol estar compost de quatre elements principals:</p>
 <ul>
 <li><strong>L'estat inicial</strong>: La configuració del sistema en el punt de partida.</li>
 <li><strong>L'objectiu o estat final</strong>: La configuració que volem assolir.</li>
@@ -581,6 +581,7 @@
 <li>Un problema de ruta, on cada ubicació geogràfica és un estat i les carreteres són les transicions.</li>
 </ul>
 <p>Per exemple, en el problema del trencaclosques de les 8 reines, cada estat és una configuració de les reines sobre el tauler, i les accions són moviments de les reines que no violen les regles del joc.</p>
+<p><img alt="Problema de les 8 reines" src="../imatges/reines.png" /></p>
 <blockquote>
 <p>El problema de les 8 reines és un problema clàssic d'intel·ligència artificial on l'objectiu és col·locar 8 reines en un tauler d'escacs de manera que cap reina puga atacar a una altra. Això implica que no poden compartir la mateixa fila, columna o diagonal.</p>
 </blockquote>
@@ -595,7 +596,9 @@
 <li><strong>Cerca de cost uniforme</strong>: Explora els nodes en funció del cost acumulat des de l'inici.</li>
 <li><strong>Cerca A</strong>*: Utilitza una funció de cost combinada que inclou tant el cost acumulat com una estimació heurística del cost restant.</li>
 </ul>
-<p>Anirem veient cadascun d'Estos algorismes en detall, incloent els seus avantatges i inconvenients, així com exemples d'aplicació. Ara, de moment, anem a introduir un altre concepte important. Les cerques poden ser <strong>informades</strong> o <strong>no informades</strong>. Podríem dir que les <strong>no informades</strong> són com anar a cegues provant alternatives, mentre que les <strong>informades</strong> utilitzen informació addicional per guiar d'alguna manera la cerca cap a la solució.</p>
+<p>Anirem veient cadascun d'estos algorismes en detall, incloent els seus avantatges i inconvenients, així com exemples d'aplicació. Ara, de moment, anem a parlar més a fons dels conceptes que hem introduït abans: les cerques poden ser <strong>informades</strong> o <strong>no informades</strong>. Podríem dir que les <strong>no informades</strong> són com anar a cegues provant alternatives, mentre que les <strong>informades</strong> utilitzen informació addicional per guiar d'alguna manera la cerca cap a la solució.</p>
+<p><img alt="Cerca no informada" src="../imatges/rumania_no_informada.jpg" /> Cerca no informada</p>
+<p><img alt="Cerca informada" src="../imatges/rumania_informada.jpg" /> Cerca informada</p>
 <h2 id="cerques-no-informades">Cerques no informades</h2>
 <p>Les cerques <strong>no informades</strong>, també conegudes com cerques <strong>a cegues</strong>, no utilitzen informació addicional sobre el problema més enllà de les definicions bàsiques dels estats i les transicions. Estes cerques exploren l'espai d'estats de manera sistemàtica. Inclouen la major part dels algorismes que hem enumerat abans:</p>
 <ul>
@@ -608,30 +611,31 @@
 <h3 id="cerca-en-amplaria">Cerca en amplària</h3>
 <p>La cerca <strong>en amplària</strong> explora tots els nodes a un determinat nivell de profunditat abans de passar als nodes del següent nivell. Esta tècnica garanteix trobar la solució més curta però pot ser ineficient pel que fa a l'ús de memòria.</p>
 <p>Este algorisme funciona utilitzant una cua, afegint els nodes fills d'un node abans d'expandir el següent node de la cua. És complet, és a dir, troba una solució si n'hi ha una, i és òptim si el cost de cada pas és igual. La principal limitació és el seu alt requeriment de memòria, especialment en espais d'estats amb un gran factor de ramificació.</p>
+<p><img alt="Cerca en amplària" src="../imatges/amplaria.png" /></p>
 <p><strong>Estats repetits</strong></p>
 <p>En la cerca en amplària, és important gestionar els estats repetits per evitar l'exploració innecessària de nodes ja visitats. Això es pot fer mantenint una llista de nodes ja explorats (CLOSED) i una llista de nodes pendents d'explorar (OPEN). Quan es genera un nou node, es comprova si ja està en CLOSED o OPEN abans d'afegir-lo a OPEN.</p>
-<p>La llista OPEN se pot implementar com una cua de prioritats. S'extrau l'element de la cua amb la màxima prioritat d'acord amb una funció <code>f(n)</code> que ens torna un valor associat a cada node <code>n</code>. En la cerca en amplària, Esta funció pot ser simplement la profunditat del node, ja que es vol explorar primer els nodes més propers a l'arrel. En una cerca no informada, Esta funció no utilitza cap informació addicional sobre l'objectiu. En la cerca en amplària la funció f(n) ens diu simplement quina és la profunditat del node perquè no tenim més informació sobre el seu cost. Ja veurem com podem aplicar-la en cerques informades.</p>
-<p>Veiem com funcionaria Este procés amb el següent pseudocodi:</p>
-<pre><code class="language-plaintext">function GRAPH-SEARCH (problema) return una solució o una fallada
+<p>La llista OPEN se pot implementar com una cua de prioritats. S'extrau l'element de la cua amb la màxima prioritat d'acord amb una funció <code>f(n)</code> que ens torna un valor associat a cada node <code>n</code>. En la cerca en amplària, esta funció pot ser simplement la profunditat del node, ja que es vol explorar primer els nodes més propers a l'arrel. En una cerca no informada, esta funció no utilitza cap informació addicional sobre l'objectiu. En la cerca en amplària la funció <code>f(n)</code> ens diu simplement quina és la profunditat del node perquè no tenim més informació sobre el seu cost. Ja veurem com podem aplicar-la en cerques informades.</p>
+<p>Veiem com funcionaria este procés amb el següent pseudocodi:</p>
+<pre><code class="language-plaintext">function GRAPH-SEARCH (problema) return // una solució o un error (no existeix solució)
   Inicialitzar la llista OPEN amb l'estat inicial del problema
   Inicialitzar la llista CLOSED a buit
   do
     if OPEN està buida 
       then return fallada
-    p &lt;- pop (llista OPEN)
-    afegir p a la llista CLOSED
-    if p = estat final 
-      then return solució p
-    generar fills de p
-    per a cada fill n de p :
-      aplicar f(n)
+    node &lt;- pop (llista OPEN)
+    afegir node a la llista CLOSED
+    if node = estat final 
+      then return solució node
+    generar fills de node
+    per a cada fill n de node :
+      aplicar f(n) en el cas que tots els nodes no tinguen el mateix cost
       if n no està en CLOSED then
-        if n no està en OPEN o (n està repetit en OPEN i f(n) és millor que el valor del nodeen OPEN) 
+        if n no està en OPEN o (n està repetit en OPEN i f(n) és millor que el valor del node en OPEN) 
           then inserir n en ordre creixent de f(n) en OPEN*
-      else f(n) és millor que el valor del node repetit en CLOSED 
+      else si f(n) és millor que el valor del node repetit en CLOSED 
         then escollir entre re-expandir n (inserir-ho en OPEN) o descartar-lo
   enddo
-* Com estem interessats a trobar únicament la primera solució, es pot eliminar n’ de la llista OPEN
+Si estem interessats a trobar únicament la primera solució, es poden eliminar els repetits de la llista OPEN i CLOSED sense necessitat de tornar a expandir-los
 </code></pre>
 <h3 id="cerca-en-profunditat">Cerca en profunditat</h3>
 <p>La cerca <strong>en profunditat</strong> explora tant com siga possible al llarg de cada branca abans de retrocedir. Este mètode utilitza menys memòria però pot no trobar la solució més curta i pot caure en cicles infinits si no es controla.</p>
@@ -650,6 +654,7 @@
         afegir veí a S
   retornar cap_solució
 </code></pre>
+<p><img alt="Cerca en profunditat" src="../imatges/profunditat.png" /></p>
 <h4 id="cerca-en-profunditat-amb-backtracking">Cerca en profunditat amb backtracking</h4>
 <p>La <strong>cerca en profunditat amb backtracking</strong> és una variant de la cerca en profunditat que permet gestionar l'exploració de l'espai d'estats de manera més eficient. Este mètode utilitza una pila per gestionar els nodes a explorar i una llista per emmagatzemar els nodes visitats. Quan es troba una solució, es retrocedeix per trobar altres solucions possibles.</p>
 <p>Esta tècnica és útil en problemes on hi ha múltiples solucions possibles o on es vol trobar la millor solució. Per exemple, en el problema de les 8 reines, es poden trobar totes les solucions possibles amb Este mètode.</p>
@@ -734,7 +739,7 @@
 <p>En un mapa bidimensional, la distància de Manhattan entre dos punts (x1, y1) i (x2, y2) es calcula com |x1 - x2| + |y1 - y2|. Esta heurística és admissible i consistent, ja que sempre subestima el cost real i compleix la condició de consistència.</p>
 <p>Este càlcul es pot generalitzar per a qualsevol dimensió, on simplement es sumen les diferències absolutes de les coordenades corresponents de cada dimensió.</p>
 <p>A diferència de la distància euclidiana, que mesura la distància més curta en línia recta entre dos punts, la distància Manhattan segueix camins paral·lels a les coordenades, com en un sistema de carrers d'una ciutat. Esta distància és molt utilitzada en aplicacions de ciències de dades, reconeixement de patrons i en jocs com el "Snake", on els moviments són limitats a direccions ortogonals.</p>
-<p><img alt="Distancia manhatan" src="img/Manhattan_distance.png" /></p>
+<p><img alt="Distancia manhatan" src="../imatges/Manhattan_distance.png" /></p>
 <h2 id="conclusio">Conclusió</h2>
 <table>
 <thead>
