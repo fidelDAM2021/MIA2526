@@ -9,6 +9,8 @@
       
       
       
+        <link rel="prev" href="../">
+      
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +18,7 @@
     
     
       
-        <title>Algorismes de cerca - Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26</title>
+        <title>3.2 Algorismes de cerca - Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26</title>
       
     
     
@@ -95,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Algorismes de cerca
+              3.2 Algorismes de cerca
             
           </span>
         </div>
@@ -292,6 +294,289 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.2 Algorismes de cerca
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Algorismes de cerca
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducció
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolucio-de-problemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolució de problemes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resolució de problemes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-un-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Què és un problema?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lespai-destats" class="md-nav__link">
+    <span class="md-ellipsis">
+      L'espai d'estats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorismes-de-cerca-en-lespai-destats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorismes de cerca en l'espai d'estats
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cerques-no-informades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerques no informades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cerques no informades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cerca-en-amplaria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca en amplària
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cerca-en-profunditat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca en profunditat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cerca en profunditat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cerca-en-profunditat-amb-backtracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca en profunditat amb backtracking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cerca-en-profunditat-limitada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca en profunditat limitada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cerca-en-profunditat-iterativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca en profunditat iterativa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cerques-informades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerques informades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cerques informades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-la-heuristica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Què és la heurística?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heuristica-admissible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heurística admissible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heuristica-consistent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Heurística consistent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cerca-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca A*
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distancia-de-manhattan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distancia de Manhattan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusió
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusió">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#llegend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llegend:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cerca-en-planificacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca en planificació
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cerca-en-entorns-dincertesa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cerca en entorns d'incertesa
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
