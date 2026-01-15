@@ -1,0 +1,963 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cerques/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>3.3 Cerques locals - Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/taules.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cerques-locals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-header__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.3 Cerques locals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-nav__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inici
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentació
+    
+      <br>
+      <small>Mòdul Models d'Intel·ligència Artificial</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introducció a la Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Introducció als Models d'Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Solució de problemes de cerca
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cerques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Algorismes de cerca
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.3 Cerques locals
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Cerques locals
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducció
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definició
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alguns-algorismes-de-cerca-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alguns algorismes de cerca local
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alguns algorismes de cerca local">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hill-climbing-ascens-de-colina" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hill climbing (ascens de colina)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorismes-genetics-ag-o-ga" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorismes genètics (AG o GA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacio-entre-algorismes-genetics-i-cerca-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relació entre algorismes genètics i cerca local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quan-usar-cada-tecnica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quan usar cada tècnica
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicio-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definició del problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-el-problema-del-viatjant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple: el problema del viatjant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple: el problema del viatjant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementació
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backtracking-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtracking local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacio-del-backtracking-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementació del backtracking local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dexecucio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple d'execució
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducció
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definició
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alguns-algorismes-de-cerca-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alguns algorismes de cerca local
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Alguns algorismes de cerca local">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hill-climbing-ascens-de-colina" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hill climbing (ascens de colina)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algorismes-genetics-ag-o-ga" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorismes genètics (AG o GA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacio-entre-algorismes-genetics-i-cerca-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relació entre algorismes genètics i cerca local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quan-usar-cada-tecnica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quan usar cada tècnica
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicio-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definició del problema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-el-problema-del-viatjant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple: el problema del viatjant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple: el problema del viatjant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementació
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backtracking-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtracking local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacio-del-backtracking-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementació del backtracking local
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dexecucio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple d'execució
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cerques-locals">Cerques locals</h1>
+<h2 id="introduccio">Introducció</h2>
+<p>Fins ara hem plantejat els problemes com a la <strong>cerca d'un camí en un espai d'estats</strong>. Com sabeu, un espai d'estats inclou:</p>
+<ul>
+<li>Un conjunt d'estats</li>
+<li>Un estat inicial</li>
+<li>Un conjunt d'estats finals</li>
+<li>Un conjunt d'accions que permeten transitar entre estats</li>
+<li>Un cost associat a cada acció (en cerques informades)</li>
+<li>Unes restriccions (en cerques amb restriccions)</li>
+<li>Una heurística (en cerques informades)</li>
+</ul>
+<p>Este plantejament és molt útil per a molts problemes, però té certes limitacions. Per exemple, quan l'espai d'estats és molt gran, quan no és fàcil definir accions (fins i tot no hi ha un algorisme concret que ajude a resoldre el problema), o quan només ens interessa trobar un estat final sense preocupar-nos pel camí seguit (o no podem representar el camí) i tampoc és interessa que el camí siga necessàriament òptim, només arribar a una solució possible.</p>
+<p>Per exemple, com hem vist en el problema del tall òptim, simplement volem trobar un estat que maximitze o minimitze unes certes funcions o propietats.</p>
+<p>En casos on les cerques globals no són pràctiques per qualsevol d'estos motius, podem utilitzar <strong>cerques locals</strong>.</p>
+<h2 id="definicio">Definició</h2>
+<p>Les <strong>cerques locals</strong> són un tipus de tècnica de cerca que es centra en explorar l'espai d'estats a partir d'una única solució candidata, anomenada <strong>estat actual</strong>. A diferència de les <strong>cerques globals</strong>, que exploren tot (o una gran part de)l'espai d'estats, les cerques locals només consideren els estats veïns de l'estat actual per trobar una millor solució. En molts casos milloren l'eficiència i troben solucions acceptables (no necessàriament òptimes) en menys temps.</p>
+<p>El problema se modela per a optimitzar el resultat d'una funció d'avaluació $f(s)$, que assigna un valor a cada estat $s$. L'objectiu és trobar un estat que maximitze (o minimitze) aquesta funció. En general quan apliquem un algorisme de cerca local, ens mourem d'un estat(solució possible) al veí (una altra solució possible) que millore el valor de la funció d'avaluació.</p>
+<p>Els passos bàsics d'un algorisme de cerca local són:</p>
+<pre><code>- Partim d'una solució inicial, moltes vegades aleatòria
+- Generem un veí de la solució actual (normalment mitjançant una funció que ens permet generar veïns a partir de l'actual)
+- Decidim si ens movem a este veí segons si millora la funció d'avaluació $f$.
+- Repetim el procés fins complir un criteri de parada (sense millora, màxim de passos, resultat òptim, etc.).
+</code></pre>
+<p>Alguns avantatges:</p>
+<ul>
+<li>no necessitem representar tot l'espai d'estats, simplement un estat inicial i una funció que ens permeta generar estat veïns a partir de l'actual</li>
+<li>utilitza menys recursos</li>
+</ul>
+<h2 id="alguns-algorismes-de-cerca-local">Alguns algorismes de cerca local</h2>
+<p>Anem a veure algunes formes d'implementar cerques locals. En concret, veurem dos algorismes molt utilitzats: el <strong>hill climbing</strong> i els <strong>algorismes genètics</strong>.</p>
+<h3 id="hill-climbing-ascens-de-colina">Hill climbing (ascens de colina)</h3>
+<p>El <strong>hill climbing</strong> és un algorisme de cerca local que, en cada pas, es mou a un veí que <strong>millore</strong> el valor de la funció objectiu. Quan no hi ha cap veí millor, s'atura en un òptim local. </p>
+<p>Algunes variants són:</p>
+<ul>
+<li><strong><em>Hill climbing simple</em></strong>: accepta el <strong>primer veí</strong> que millora la funció d'avaluació.</li>
+<li><strong><em>Màxima pendent (steepest-ascent)</em></strong>: examina tots els veïns i tria el <strong>millor de tots</strong> els que milloren la funció d'avaluació.</li>
+<li><strong><em>Estocàstic</em></strong>: tria veïns a l'atzar i decideix probabilísticament si moure's o seguir buscant.</li>
+</ul>
+<p>L'algorisme pot patir alguns problemes, com ara:</p>
+<ul>
+<li><strong><em>Màxims (o mínims) locals</em></strong>: punts on cap veí millora, però no és l'òptim global.</li>
+<li><strong><em>Mesetes</em></strong>: regions on molts estats tenen el mateix valor de la funció d'avaluació; l'algorisme pot quedar-se estancat.</li>
+<li><strong><em>Crestes</em></strong>: zones on cal fer moviments laterals o petits empitjoraments per després millorar, cosa que el hill climbing pur no permet.</li>
+</ul>
+<p>Algunes estratègies per pal·liar aquests problemes són:</p>
+<ul>
+<li>Reinicis aleatoris: executar <strong>hill climbing</strong> moltes vegades des de diferents estats inicials per escapar de mals òptims locals.</li>
+<li>Mètodes relacionats:<ul>
+<li>Temple simulat (simulated annealing): permet <strong>empitjorar</strong> de forma controlada al principi per escapar de màxims locals.</li>
+<li>Cerca tabú i altres cerques en memòria: eviten tornar a estats ja visitats o poc prometedors.</li>
+</ul>
+</li>
+</ul>
+<h3 id="algorismes-genetics-ag-o-ga">Algorismes genètics (AG o GA)</h3>
+<p><strong><em>Els algorismes genètics</em></strong> són una tècnica de cerca i optimització inspirada en l'<strong>evolució biològica</strong>: població, selecció natural, creuament i mutació.</p>
+<p>Representen cada solució com un <strong><em>cromosoma</em></strong> (habitualment una cadena de bits, enters o gens), i defineixen una funció de <strong><em>fitness</em></strong> que indica la qualitat de la solució.</p>
+<p>En els algorismes genètics, la <strong>representació</strong> diu com codifiques una solució com a "cromosoma", i la <strong>funció fitness</strong> diu com tan bona és esta solució davant pel problema que vols resoldre.</p>
+<p><strong>Representació (cromosomes)</strong></p>
+<p>La representació és la forma en que escrivim una solució dins de l'algorisme: per exemple, una cadena de bits, una llista d'enters, un vector real, etc.</p>
+<p>Ha de complir dues coses:
+- Cada cromosoma ha de correspondre's amb una solució vàlida (o fàcil de reparar).
+- Els operadors genètics (creuament i mutació) han de tindre sentit.</p>
+<p>Exemples comuns de este tipus de representació són problemes d'optimització com per exemple:</p>
+<ul>
+<li><strong><em>Motxilla</em></strong>: un vector binari on cada bit indica si un objecte s'inclou (1) o no (0) a la motxilla.</li>
+<li><strong><em>N‑reines</em></strong>: un vector d'enters on la posició $i$ indica la fila de la reina a la columna $i$.</li>
+</ul>
+<p><strong>Funció fitness</strong></p>
+<p>La funció fitness assigna un número real a cada individu, indicant <strong>com de bona</strong> és la solució codificada pel seu cromosoma.</p>
+<p>Normalment es dissenya de forma que <strong>valors més alts</strong> signifiquen millors solucions, i s'usa per:
+- Avaluar la qualitat de la població en cada generació.
+- Determinar la probabilitat de selecció: individus amb més fitness tenen més probabilitat de reproduir-se.</p>
+<p>Exemples de funcions fitness per als mateixos problemes que hem comentat abans:
+- <strong><em>Motxilla</em></strong>: suma dels valors dels objectes inclosos, penalitzant si es supera la capacitat de la motxilla.
+- <strong><em>N‑reines</em></strong>: quantitat de parells de reines que <strong>no</strong> s'ataquen (quant menys, millor)</p>
+<p><strong>Cicle bàsic d'un algorisme genètic</strong></p>
+<p>El cicle bàsic d'un algorisme genètic segueix els següents passos:</p>
+<ol>
+<li>Generar una <strong>població inicial</strong> de solucions (normalment aleatòria).</li>
+<li>Evaluar el <strong>fitness</strong> de cada individu (solució).</li>
+<li><strong>Seleccionar</strong> individus amb millor fitness per reproduir-se (ruleta, torneig, etc.).</li>
+<li>Aplicar <strong>creuament</strong> (crossover) per combinar parts de dos pares i generar fills.</li>
+<li>Aplicar <strong>mutació</strong> amb baixa probabilitat per introduir variació aleatòria.</li>
+<li>Formar la nova població amb els fills (i a vegades alguns pares elitistes).</li>
+<li>Repetir el cicle fins a un criteri de parada (quantitat de generacions, llindar de fitness, etc.).</li>
+</ol>
+<h3 id="relacio-entre-algorismes-genetics-i-cerca-local">Relació entre algorismes genètics i cerca local</h3>
+<ul>
+<li>
+<p>Cada individu se pot veure com un punt de l'espai de cerca. Els operadors de creuament i mutació generen <strong>veïns</strong>, de forma que el GA actua com un <strong><em>hill climbing en paral·lel</em></strong> sobre molts punts a la vegada.</p>
+</li>
+<li>
+<p>Es comú hibridar solucions. És a dir, aplicar <strong><em>hill climbing</em></strong> o altra cerca local a cada individu per "polir" les solucions (algorismes memètics) o usar adaptació lamarckiana on la millora local es reflecteix en el cromosoma heretable.</p>
+</li>
+</ul>
+<h3 id="quan-usar-cada-tecnica">Quan usar cada tècnica</h3>
+<ul>
+<li>
+<p><strong><em>Hill climbing</em></strong>:</p>
+<ul>
+<li>Útil quan la funció és suau, barata de avaluar i es pot generar un veïnatge raonable; és molt simple i ràpid, però ja hem comentat que pot quedar-se en òptims locals.</li>
+</ul>
+</li>
+<li>
+<p><strong><em>Algoritmes genètics</em></strong>:</p>
+<ul>
+<li>Interessants quan l'espai és molt gran, multimodal i no es disposa de gradient; la població i la recombinació ajuden a escapar d'òptims locals, a costa de major cost computacional i més paràmetres a ajustar.</li>
+</ul>
+</li>
+</ul>
+<h2 id="definicio-del-problema">Definició del problema</h2>
+<p>Per definir un problema de cerca local podem crear una classe abstracta que després implementarem en els nostres problemes concrets. De moment només definim les funcions sense especificar què faran, perquè en cada cas concret haurem d'implementar-les segons el problema que volem resoldre.</p>
+<pre><code class="language-python">class ProblemaCercaLocal(object):
+    def __init__(self, inicial=None, **kwds): # **kwds per a altres paràmetres variables (keyword arguments)
+        self.__dict__.update(inicial=inicial, **kwds) # assigna atributs a l'objecte de forma dinàmica 
+
+    # la funció estats_successors genera els estats veïns de l'estat actual
+    def estats_successors(self, estat):    raise NotImplementedError
+
+    # la funció es_solucio comprova si l'estat actual és una solució
+    def es_solucio(self, estat):           raise NotImplementedError
+
+    # la funció funcio_avaluacio retorna el valor de la funció d'avaluació per a l'estat actual
+    # esta funció és la que utilitzarem per a comparar estats i decidir quin és millor
+    def funcio_avaluacio(self, state):     return NotImplementedError
+
+    # la funció __repr__ retorna una representació en cadena de l'objecte per si volem mostrar-lo
+    def __repr__(self):
+        return '{}({!r})'.format(
+            type(self).__name__, self.inicial)
+</code></pre>
+<h2 id="exemple-el-problema-del-viatjant">Exemple: el problema del viatjant</h2>
+<p>Imagineu que tenim un viatjant que ha de visitar vàries ciutats. Volem optimitzar el recorregut de forma que el repartidor passe per totes les ciutats una sola vegada i torne al punt d'inici, minimitzant la distància total recorreguda. Aquest problema és conegut com el <strong>Problema del viatjant de comerç</strong> (TSP, per les seues sigles en anglès), i és bastant típic en l'àmbit de la cerca local.</p>
+<ul>
+<li>Les <strong>variables</strong> són les <strong>ciutats</strong> i els <strong>dominis</strong> són les <strong>posicions</strong>.</li>
+<li>Les <strong>restriccions</strong> són que <strong>no poden haver dues ciutats en la mateixa posició</strong>.</li>
+<li>Les <strong>solucions</strong> són les <strong>permutacions de les ciutats</strong> que permeten complir les restriccions.</li>
+</ul>
+<p><img alt="Problema del viatjant" src="../imatges/viatjant.png" /></p>
+<p>Fixeu-vos que si haguérem d'explorar tot l'espai d'estats, la quantitat d'estats possibles seria molt gran. Per exemple, per a 10 ciutats hi ha $$10! = 3.628.800$$ possibles recorreguts. Això fa que les cerques globals siguen poc pràctiques per a aquest tipus de problemes.</p>
+<p>Plantegem el problema com una cerca local, amb un estat inicial que serà una permutació aleatòria de les ciutats i una funció d'avaluació que calcule la distància total del recorregut. Anirem generant estats veïns intercanviant la posició de dues ciutats en el recorregut actual i seleccionant el millor estat veí, segons la funció d'avaluació,fins que no puguem millorar més.</p>
+<h3 id="implementacio">Implementació</h3>
+<pre><code class="language-python">class TSP(ProblemaCercaLocal): # hereta de la classe abstracta ProblemaCercaLocal
+    def estats_successors(self, estat): # implementem la funció que genera els estats veïns
+        successors = [] # en principi la llista està buida
+        for i in range(len(estat)): # recorrem totes les ciutats
+            for j in range(i + 1, len(estat)): # i per cada ciutat, totes les altres ciutats
+                successor = estat.copy() # fem una còpia de l'estat actual
+                # intercanviem les posicions de les ciutats i afegim el nou estat a la llista
+                successor[i], successor[j] = successor[j], successor[i]
+                successors.append(successor)
+        # així hem generat tots els estats veïns possibles intercanviant dues ciutats
+        # la llista successors conté tots els estats veïns
+        return successors
+
+    def distancia(self, ciutat1, ciutat2): # implementem una funció per calcular la distància entre dues ciutats
+        # utilitzant la distancia euclidiana
+        return math.sqrt((ciutat1[0] - ciutat2[0]) ** 2 + (ciutat1[1] - ciutat2[1]) ** 2)
+
+    def funcio_avaluacio(self, estat): # implementem la funció d'avaluació
+        # la funció d'avaluació serà la inversa de la distància total del recorregut
+        distancia = 0
+        for i in range(len(estat)):
+            distancia += self.distancia(estat[i], estat[(i + 1) % len(estat)])
+            # la fórmula anterior suma la distància entre la ciutat actual i la següent
+        return 1 / distancia
+
+
+    @classmethod # mètode de classe per generar un estat inicial aleatori
+    def genera_estat_inicial(cls, ciutats): # cls és la classe TSP
+        return random.sample(ciutats, len(ciutats))
+</code></pre>
+<h3 id="backtracking-local">Backtracking local</h3>
+<p>Si volem trobar una solució òptima, hem d'utilitzar la tècnica del <strong><em>backtracking</em></strong> que ja hem vist en altres exemples. La idea és explorar l'espai d'estats de manera exhaustiva, però només mantenint en memòria l'estat actual i els estats veïns. Si arribem a un estat on no podem millorar més, tornem enrere (backtrack) i explorem altres estats veïns per si trobem una solució millor.</p>
+<h3 id="implementacio-del-backtracking-local">Implementació del backtracking local</h3>
+<p>Si us fixeu, està tècnica ja l'hem utilitzada anteriorment en altres exemples, com per exemple quan voliem trobar el camí més curt entre dues ciutats en una cerca informada.</p>
+<pre><code class="language-python">def backtracking(problema):
+    cua = [problema.inicial]
+    visitats = set()
+    millor_estat, millor_fitness = None, float('inf')
+    while cua:
+        estat = cua.pop(0)
+        if problema.es_solucio(estat) and problema.funcio_avaluacio(estat) &gt; millor_fitness:
+            millor_estat = estat
+            millor_fitness = problema.funcio_avaluacio(estat)
+        if str(estat) not in visitats:
+            visitats.add(str(estat))
+            successors = problema.estats_successors(estat)
+            for successor in successors:
+                if es_compleixen_restriccions(successor): # esta funció no està implementada en este exemple
+                    # es tracta de definir una funció que comprove si l'estat successor compleix les restriccions del problema
+                    cua.append(successor)
+
+    return millor_estat
+</code></pre>
+<h3 id="exemple-dexecucio">Exemple d'execució</h3>
+<pre><code class="language-python">
+# Anem a generar 7 ciutats amb coordenades aleatòries
+
+ciutats = [
+    (random.randint(0, 1000),
+     random.randint(0, 1000))
+    for _ in range(7)
+]
+
+# ara creem una instància del problema TSP amb l'estat inicial i les ciutats
+
+tsp = TSP(
+    inicial=TSP.genera_estat_inicial(ciutats),
+    ciutats=ciutats
+)
+
+# i ara executem la funció backtracking per trobar la millor solució
+
+solucio = backtracking(tsp)
+
+print(&quot;Millor recorregut:&quot;, solucio)
+print(&quot;Distància total:&quot;, 1 / tsp.funcio_avaluacio(solucio))
+</code></pre>
+<p>El codi de l'exemple el teniu en un quadern Jupyter anomenat <code>tsp.ipynb</code> que podeu descarregar des de la plataforma <strong>Aules</strong> i comprovar si funciona correctament. A més podreu veure vàries solucions possibles. També veureu exemples d'algorismes genètics, sense entrar en profunditat però amb problemes resolts.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
