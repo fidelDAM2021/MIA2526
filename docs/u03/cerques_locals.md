@@ -155,7 +155,7 @@ Imagineu que tenim un viatjant que ha de visitar vàries ciutats. Volem optimitz
 - Les **restriccions** són que **no poden haver dues ciutats en la mateixa posició**.
 - Les **solucions** són les **permutacions de les ciutats** que permeten complir les restriccions.
 
-![Problema del viatjant](viatjant.png)
+![Problema del viatjant](imatges/viatjant.png)
 
 Fixeu-vos que si haguérem d'explorar tot l'espai d'estats, la quantitat d'estats possibles seria molt gran. Per exemple, per a 10 ciutats hi ha $$10! = 3.628.800$$ possibles recorreguts. Això fa que les cerques globals siguen poc pràctiques per a aquest tipus de problemes.
 
