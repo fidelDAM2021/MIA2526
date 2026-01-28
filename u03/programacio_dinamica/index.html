@@ -1,0 +1,865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cerques_locals/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>3.4 Programació dinàmica - Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/taules.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#programacio-dinamica" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-header__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.4 Programació dinàmica
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-nav__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../../img/logo.svg" alt="logo">
+
+    </a>
+    Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inici
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentació
+    
+      <br>
+      <small>Mòdul Models d'Intel·ligència Artificial</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introducció a la Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../u02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Introducció als Models d'Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Solució de problemes de cerca
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cerques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Algorismes de cerca
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cerques_locals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Cerques locals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.4 Programació dinàmica
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 Programació dinàmica
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-la-programacio-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Què és la Programació Dinàmica?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-el-problema-de-la-motxilla-knapsack-problem-amb-programacio-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple: el problema de la motxilla (Knapsack Problem) amb programació dinàmica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple: el problema de la motxilla (Knapsack Problem) amb programació dinàmica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#com-funciona-lalgorisme-de-programacio-dinamica-en-el-problema-de-la-motxilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com Funciona l'Algorisme de Programació Dinàmica en el Problema de la Motxilla?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Com Funciona l&#39;Algorisme de Programació Dinàmica en el Problema de la Motxilla?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-definicio-de-la-taula-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Definició de la taula DP:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-inicialitzacio-de-la-taula" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Inicialització de la taula:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-omplir-la-taula" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Omplir la taula:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-recuperacio-de-la-solucio-optima" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Recuperació de la solució òptima:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacio-de-la-programacio-dinamica-amb-altres-metodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparació de la Programació Dinàmica amb altres mètodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparació de la Programació Dinàmica amb altres mètodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-forca-bruta" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Força Bruta:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-algoritmes-genetics" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Algoritmes Genètics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cerques-locals" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cerques locals:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resum-de-comparacions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resum de Comparacions:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-la-programacio-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Què és la Programació Dinàmica?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemple-el-problema-de-la-motxilla-knapsack-problem-amb-programacio-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemple: el problema de la motxilla (Knapsack Problem) amb programació dinàmica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemple: el problema de la motxilla (Knapsack Problem) amb programació dinàmica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#com-funciona-lalgorisme-de-programacio-dinamica-en-el-problema-de-la-motxilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com Funciona l'Algorisme de Programació Dinàmica en el Problema de la Motxilla?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Com Funciona l&#39;Algorisme de Programació Dinàmica en el Problema de la Motxilla?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-definicio-de-la-taula-dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Definició de la taula DP:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-inicialitzacio-de-la-taula" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Inicialització de la taula:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-omplir-la-taula" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Omplir la taula:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-recuperacio-de-la-solucio-optima" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Recuperació de la solució òptima:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacio-de-la-programacio-dinamica-amb-altres-metodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparació de la Programació Dinàmica amb altres mètodes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparació de la Programació Dinàmica amb altres mètodes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-forca-bruta" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Força Bruta:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-algoritmes-genetics" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Algoritmes Genètics:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cerques-locals" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Cerques locals:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resum-de-comparacions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resum de Comparacions:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="programacio-dinamica">Programació Dinàmica</h1>
+<p>Anem a veure altres tècniques d'optimització que no se consideren com a cerca local. En este cas, la <strong>programació dinàmica</strong> que és una tècnica molt potent per resoldre problemes d'optimització que tenen una estructura específica.</p>
+<h2 id="que-es-la-programacio-dinamica">Què és la Programació Dinàmica?</h2>
+<p>La programació dinàmica se basa en la descomposició d'un problema en subproblemes més xicotets i resoldre'ls de manera eficient emmagatzemant els resultats de subproblemes ja resolts per evitar càlculs repetitius. Aquesta tècnica és especialment útil per a problemes d'optimització on es poden identificar subproblemes que es repeteixen.</p>
+<p><img alt="Programació Dinàmica" src="../imatges/programacio_dinamica.jpg" /></p>
+<p>La programació dinàmica és útil quan un problema té les següents dues característiques:</p>
+<ol>
+<li><strong>Subestructura òptima:</strong> La solució òptima d'un problema pot construir-se a partir de les solucions òptimes dels seus subproblemes.</li>
+<li><strong>Superposició de subproblemes:</strong> El problema pot dividir-se en subproblemes que es resolen diverses vegades.</li>
+</ol>
+<p>Es veurà millor amb un exemple, que a més resoldrem de dues maneres per poder comparar diferents mètodes.</p>
+<h2 id="exemple-el-problema-de-la-motxilla-knapsack-problem-amb-programacio-dinamica">Exemple: el problema de la motxilla (Knapsack Problem) amb programació dinàmica</h2>
+<p>El <strong>problema de la motxilla</strong> és un problema clàssic d'optimització que es pot resoldre mitjançant programació dinàmica. Tenim una motxilla amb una capacitat màxima <code>W</code> i un conjunt d'objectes, cadascun amb un pes i un valor associat. L'objectiu és determinar quins objectes incloure a la motxilla per maximitzar el valor total sense excedir la capacitat màxima. El problema és extensible a qualsevol contenidor que tinga una capacitat limitada i que es vulga omplir de manera òptima tenint en compte certs criteris (quantitat d'elements, pes total, valor total, etc.).</p>
+<p><img alt="Problema de la Motxilla" src="../imatges/problemamotxilla.jpg" /></p>
+<p>El problema se pot resoldre amb programació dinàmica perquè el valor màxim que es pot obtenir amb una capacitat de motxilla <code>W</code> utilitzant els primers <code>i</code> objectes depèn del valor màxim obtingut utilitzant els primers <code>i-1</code> objectes amb una capacitat menor o igual a <code>W</code>. Per tant, estem davant d'un cas de <strong>subestructura òptima</strong> i <strong>superposició de subproblemes</strong>.</p>
+<h3 id="com-funciona-lalgorisme-de-programacio-dinamica-en-el-problema-de-la-motxilla">Com Funciona l'Algorisme de Programació Dinàmica en el Problema de la Motxilla?</h3>
+<p>En el cas del <strong>problema de la motxilla</strong>, la idea és construir una <strong>taula (matriu DP)</strong> que ens permeta emmagatzemar les solucions parcials de subproblemes, de manera que puguem reutilitzar-les en lloc de recalcular-les cada vegada.</p>
+<p>L'enfocament és el següent:</p>
+<h4 id="1-definicio-de-la-taula-dp">1. <strong>Definició de la taula DP:</strong></h4>
+<p>Creem una taula <code>dp[i][w]</code>, on:</p>
+<ul>
+<li><code>i</code> és l'índex dels objectes considerats (des de 0 fins a <code>n</code> objectes).</li>
+<li><code>w</code> és el pes de la motxilla considerat (des de 0 fins al pes màxim <code>W</code> de la motxilla).</li>
+</ul>
+<p>Cada cel·la <code>dp[i][w]</code> representarà el valor màxim que es pot obtenir utilitzant els primers <code>i</code> objectes i un pes màxim de <code>w</code>.</p>
+<h4 id="2-inicialitzacio-de-la-taula">2. <strong>Inicialització de la taula:</strong></h4>
+<ul>
+<li><code>dp[0][w] = 0</code> per a tot <code>w</code> (si no hi ha objectes, el valor màxim és 0).</li>
+<li><code>dp[i][0] = 0</code> per a tot <code>i</code> (si el pes de la motxilla és 0, el valor màxim també és 0).</li>
+</ul>
+<h4 id="3-omplir-la-taula">3. <strong>Omplir la taula:</strong></h4>
+<p>Per a cada objecte <code>i</code> (des de 1 fins a <code>n</code>), i per a cada pes <code>w</code> (des de 1 fins a <code>W</code>), es pren una decisió:</p>
+<ul>
+<li><strong>No incloure l'objecte <code>i</code> a la motxilla</strong>: el valor de <code>dp[i][w]</code> seria per tant el mateix que <code>dp[i-1][w]</code> (el valor màxim considerant només els primers <code>i-1</code> objectes i el mateix pes).</li>
+<li><strong>Incloure l'objecte <code>i</code> a la motxilla</strong>: Si el pes de l'objecte <code>i</code> és menor o igual a <code>w</code>, el valor seria <code>dp[i-1][w-pes_objecte] + valor_objecte</code> (el valor màxim considerant els primers <code>i-1</code> objectes i el pes restant després d'incloure l'objecte <code>i</code>).
+Al final, el valor màxim es troba a <code>dp[n][W]</code>, que és el valor màxim que es pot obtenir amb tots els objectes i el pes màxim <code>W</code>.</li>
+</ul>
+<h4 id="4-recuperacio-de-la-solucio-optima">4. <strong>Recuperació de la solució òptima:</strong></h4>
+<p>Un cop la taula està plena, podem retrocedir des de <code>dp[n][W]</code> per recuperar quins objectes van ser seleccionats a la motxilla. Si <code>dp[i][w]</code> no és igual a <code>dp[i-1][w]</code>, significa que l'objecte <code>i</code> va ser inclòs a la solució.</p>
+<blockquote>
+<p>En un quadern Jupyter que vos adjuntaré trobareu la solució implementada en Python.</p>
+</blockquote>
+<h3 id="comparacio-de-la-programacio-dinamica-amb-altres-metodes"><strong>Comparació de la Programació Dinàmica amb altres mètodes</strong></h3>
+<h4 id="1-forca-bruta"><strong>1. Força Bruta:</strong></h4>
+<p>La <strong>força bruta</strong> implica provar totes les combinacions possibles d'objectes i verificar quina d'elles compleix amb la condició de no excedir el pes màxim i té el valor més alt. La quantitat de combinacions creix exponencialment amb la quantitat d'objectes, per la qual cosa este enfocament pot ser vàlid per a problemes xicotets, però segons se va incrementant la complexitat acaba per no ser pràctic.</p>
+<ul>
+<li><strong>Avantatge de la PD sobre força bruta:</strong> La programació dinàmica és molt més eficient perquè <strong>evita recalcular subproblemes</strong>. Per tant pot aplicar-se a problemes de major escala sense tornar-se ineficient.</li>
+</ul>
+<h4 id="2-algoritmes-genetics"><strong>2. Algoritmes Genètics:</strong></h4>
+<p>Els <strong>algoritmes genètics (AG)</strong> són una tècnica d'optimització basada en l'evolució biològica (selecció natural, creuaments, mutacions). Tot i que poden ser molt poderosos per trobar solucions aproximades a problemes complexos (com el <strong>problema de la motxilla</strong> o problemes amb molts paràmetres), els AG requereixen una configuració acurada de paràmetres i un procés d'evolució que pot ser costós en termes de temps.</p>
+<ul>
+<li>
+<p><strong>Complexitat dels algoritmes genètics:</strong> Depèn de la implementació, però en general, els AG poden requerir moltes generacions i avaluacions per trobar una bona solució, cosa que pot ser ineficient per a problemes amb estructures simples i subproblemes que poden ser resolts eficientment.</p>
+</li>
+<li>
+<p><strong>Avantatge de la PD sobre els AG:</strong> La PD és més <strong>determinística i eficient</strong> quan el problema té una estructura òptima ben definida i subproblemes que es superposen. Els AG, per altra banda, són més adequats per a problemes de cerca en espais de solucions grans i complexos on no existeix una estructura clara.</p>
+</li>
+</ul>
+<blockquote>
+<p>De totes formes podrem comparar la solució que dóna la programació dinàmica amb la que dóna un algoritme genètic en el mateix quadern Jupyter que vos adjuntaré.</p>
+</blockquote>
+<h4 id="3-cerques-locals"><strong>3. Cerques locals:</strong></h4>
+<p>La <strong>programació dinàmica</strong> no es classifica com una <strong>cerca local</strong>. Tot i que en certs casos pot semblar que "explora" solucions locals (especialment en omplir una taula de subproblemes), el mètode és diferent. La PD busca <strong>resoldre subproblemes de manera òptima</strong> i <strong>emmagatzemar les solucions parcials</strong>, cosa que la fa diferent de la cerca local. En la cerca local, normalment es parteix d'una solució inicial i s'exploren solucions veïnes o properes a aquesta, buscant millorar de manera iterativa, mentre que la PD és una tècnica estructurada i sistemàtica que resol subproblemes de manera global.</p>
+<h4 id="resum-de-comparacions"><strong>Resum de Comparacions:</strong></h4>
+<p>(n significa la quantitat d'objectes i W la capacitat màxima de la motxilla)</p>
+<table>
+<thead>
+<tr>
+<th>Enfocament</th>
+<th>Complexitat</th>
+<th>Avantatges</th>
+<th>Desavantatges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Força bruta</strong></td>
+<td>(O(2^n))</td>
+<td>Simple de entendre i implementar.</td>
+<td>Ineficient per a problemes grans.</td>
+</tr>
+<tr>
+<td><strong>Programació dinàmica</strong></td>
+<td>(O(n x W))</td>
+<td>Eficient, resol subproblemes de manera òptima.</td>
+<td>Requereix espai addicional per a la taula DP.</td>
+</tr>
+<tr>
+<td><strong>Algoritmes genètics</strong></td>
+<td>Variable</td>
+<td>Útil per a espais grans i sense estructura clara.</td>
+<td>Costós en termes de temps i paràmetres difícils d'ajustar.</td>
+</tr>
+<tr>
+<td><strong>Cerca Local (Hill Climbing, Simulated Annealing)</strong></td>
+<td>Variable</td>
+<td>Eficient per trobar solucions aproximades ràpidament.</td>
+<td>No garanteix la solució òptima, pot quedar atrapat en mínims locals.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
