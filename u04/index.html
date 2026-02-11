@@ -1,0 +1,803 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../u03/programacio_dinamica/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>4. Processament del llenguatge natural - Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../styles/taules.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#processament-del-llenguatge-natural" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-header__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Processament del llenguatge natural
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Mòdul: Models d&#39;Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" class="md-nav__button md-logo" aria-label="Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26" data-md-component="logo">
+      
+  <img src="../img/logo.svg" alt="logo">
+
+    </a>
+    Mòdul: Models d'Intel·ligència Artificial (CE IA i Big Data) Curs 25/26
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inici
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentació
+    
+      <br>
+      <small>Mòdul Models d'Intel·ligència Artificial</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introducció a la Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Introducció als Models d'Intel·ligència Artificial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1 Solució de problemes de cerca
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u03/cerques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2 Algorismes de cerca
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u03/cerques_locals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3 Cerques locals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u03/programacio_dinamica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.4 Programació dinàmica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    4. Processament del llenguatge natural
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Processament del llenguatge natural
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio-al-processament-del-llenguatge-natural-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducció al Processament del Llenguatge Natural (PLN)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicacions-principals-del-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicacions principals del PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evolucio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolució
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models-de-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Models de PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-podem-trobar-text-per-entrenar-models-de-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      On podem trobar text per entrenar models de PLN?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eines-i-biblioteques-per-al-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eines i biblioteques per al PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alguns-conceptes-basics-en-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alguns conceptes bàsics en PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessament-de-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preprocessament de text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analisi-de-sentiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anàlisi de sentiments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio-al-processament-del-llenguatge-natural-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducció al Processament del Llenguatge Natural (PLN)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicacions-principals-del-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicacions principals del PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evolucio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evolució
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models-de-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Models de PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#on-podem-trobar-text-per-entrenar-models-de-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      On podem trobar text per entrenar models de PLN?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eines-i-biblioteques-per-al-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eines i biblioteques per al PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alguns-conceptes-basics-en-pln" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alguns conceptes bàsics en PLN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preprocessament-de-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preprocessament de text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analisi-de-sentiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anàlisi de sentiments
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="processament-del-llenguatge-natural">Processament del llenguatge natural</h1>
+<p>El <strong>Processament del Llenguatge Natural (PLN)</strong> és una branca de la intel·ligència artificial que se centra en la interacció entre els ordinadors i el llenguatge humà. L'objectiu principal del PLN és permetre als ordinadors comprendre, interpretar i generar llenguatge natural de manera que siga útil per als humans.</p>
+<h2 id="introduccio-al-processament-del-llenguatge-natural-pln">Introducció al Processament del Llenguatge Natural (PLN)</h2>
+<p>El camp del PLN combina coneixements de lingüística, informàtica i intel·ligència artificial per desenvolupar algoritmes i models que puguen processar textos i discursos humans. Això inclou tasques com l'anàlisi sintàctica, la comprensió semàntica, la traducció automàtica, la generació de text i el reconeixement de veu.</p>
+<p>Per què una màquina puga processar llenguatge, caldrà aplicar l'estudi de diverses àrees, com ara:</p>
+<ul>
+<li><strong>Morfologia</strong>: estudi de la formació de les paraules i de la información continguda en elles.</li>
+<li><strong>Sintaxi</strong>: estudi de l'estructura de les frases i de les regles que governen la combinació de paraules per a formar oracions coherents.</li>
+<li><strong>Semàntica</strong>: estudi del significat de les paraules i de les oracions.</li>
+<li><strong>Pragmàtica</strong>: estudi de l'ús del llenguatge en contextos específics i de com el significat pot variar segons la situació.</li>
+</ul>
+<h2 id="aplicacions-principals-del-pln">Aplicacions principals del PLN</h2>
+<p>El PLN té una àmplia gamma d'aplicacions pràctiques, entre les quals destaquen:</p>
+<ul>
+<li>reconeixement de veu i assistents virtuals (com Siri, Alexa, Google Assistant).</li>
+<li>anàlisi de sentiments (entendre les opinions i fins i tot les emocions expressades en textos).</li>
+<li>traducció automàtica (com Google Translate).</li>
+<li>classificació de textos (com filtres de correu brossa).</li>
+<li>creació de xatbots i sistemes de resposta automàtica en temps real.</li>
+<li>resum automàtic de documents.</li>
+<li>detecció i classificació d'entitats en un text (com noms de persones, llocs, organitzacions).</li>
+</ul>
+<h2 id="evolucio">Evolució</h2>
+<p>Els primers intents de fer PLN se remonten a 1954. Seguint la línia del conegut <strong>Test de Turing</strong> (que avaluava si una màquina podia comportar-se com un humà), se va portar a terme el <strong>Test de Georgetown</strong>. Com a resultat, se va aconseguir traduir un text del rus a l'anglès sense errors. Aquest èxit inicial va generar un gran optimisme sobre les possibilitats del PLN. No obstant això, els intents posteriors van revelar la complexitat inherent del llenguatge humà, incloent-hi ambigüitats, contextos culturals i variacions dialectals.</p>
+<p>Les limitacions del hardware van fer que, com altres parts de la IA, el PLN no continuara desenvolupant-se fins als anys 1980. L'evolució posterior del PLN va estar impulsat per l'augment de la potència de càlcul, i per la disponibilitat de grans volums de dades textuals ("corpus") que permetien entrenar els models. </p>
+<p>Actualment el camp ha experimentat un salt qualitatiu gràcies a la integració de models de llenguatge avançats i profunds, com GPT o BERT, que utilitzen arquitectures de xarxes neuronals (transformers) per aconseguir una precisió sense precedents en la comprensió del llenguatge.</p>
+<h2 id="models-de-pln">Models de PLN</h2>
+<p>Els models de PLN són algorismes i estructures matemàtiques dissenyades per processar i analitzar el llenguatge natural. Estos models poden variar des de simples regles basades en gramàtica fins a complexos sistemes d'aprenentatge automàtic i xarxes neuronals profundes. Alguns dels models més comuns inclouen:</p>
+<ul>
+<li><strong>Models basats en regles</strong>: Utilitzen un conjunt de regles lingüístiques per analitzar i generar llenguatge. Són útils per a tasques específiques però tenen limitacions en la gestió de la variabilitat del llenguatge.</li>
+<li><strong>Models estadístics</strong>: Utilitzen tècniques estadístiques per identificar patrons en grans conjunts de dades textuals. Estos models poden aprendre a partir de l'experiència i millorar amb el temps.</li>
+<li><strong>Models d'aprenentatge profund</strong>: Utilitzen xarxes neuronals profundes per capturar les complexitats del llenguatge. Estos models, com els transformers, han demostrat ser extremadament efectius en una àmplia gamma de tasques de PLN.</li>
+</ul>
+<p>Models preentrenats com <strong>GPT (Generative Pre-trained Transformer)</strong>, <strong>BERT (Bidirectional Encoder Representations from Transformers)</strong> i <strong>T5 (Text-to-Text Transfer Transformer)</strong> han revolucionat el camp del PLN, permetent aplicacions avançades com la generació de text coherent, la traducció automàtica i la comprensió contextual.</p>
+<p>Els <strong>models fundacionals</strong> són una nova categoria de models de PLN que combinen la potència dels models preentrenats amb la flexibilitat per adaptar-se a tasques específiques. Aquests models permeten als usuaris personalitzar i ajustar els models segons les seves necessitats particulars, sense haver de començar des de zero. Vosaltres heu utilitzat en la pràctica que heu fet amb <strong>AWS Bedrock</strong> heu utilitzat alguns d'eixos models, i els heu anat ajustant modificant els seus paràmetres, afegint guardrails i entrenant-los amb dades específiques (les bases de coneixement) per a millorar el seu rendiment en tasques concretes.</p>
+<h2 id="on-podem-trobar-text-per-entrenar-models-de-pln">On podem trobar text per entrenar models de PLN?</h2>
+<p>Hi ha models que aprenen a partir de documents en format text, PDF, pàgines web, etc. Si voleu <strong>corpus</strong> grans de text, hi ha llocs on podeu trobar-los de forma gratuïta:</p>
+<ul>
+<li><strong>Projecte Gutenberg</strong>: Una biblioteca digital de llibres de domini públic. (https://www.gutenberg.org/). Podeu trobar més informació a https://github.com/pgcorpus/gutenberg</li>
+<li><strong>Common Crawl</strong>: Un arxiu massiu de dades web que conté pàgines web rastrejades des de fa anys. (https://commoncrawl.org/)</li>
+<li><strong>Wikipedia</strong>: La base de dades de Wikipedia està disponible per a la descàrrega i pot ser utilitzada com a corpus de text. (https://dumps.wikimedia.org/)</li>
+</ul>
+<p>Hi ha molts altres llocs. En castellà i català, per exemple, teniu:</p>
+<ul>
+<li>https://clic.ub.edu/corpus/ </li>
+<li>https://www.corpusdelespanol.org/</li>
+<li>https://github.com/roquegv/spanishNLPModelCorpus</li>
+</ul>
+<h2 id="eines-i-biblioteques-per-al-pln">Eines i biblioteques per al PLN</h2>
+<p>Hi ha moltes eines i biblioteques disponibles per al desenvolupament de projectes de PLN. Algunes de les més populars inclouen:</p>
+<ul>
+<li><strong>NLTK (Natural Language Toolkit)</strong>: Una biblioteca de Python molt popular i senzilla que proporciona eines per al processament del llenguatge natural, incloent-hi tokenització, etiquetatge gramatical, eliminació de paraules de parada, anàlisi de sentiments, etc. (https://www.nltk.org/)</li>
+<li><strong>WordNet</strong>: Un gran diccionari de sinònims i relacions semàntiques entre paraules, que es pot utilitzar per a tasques com la desambiguació de paraules i l'anàlisi semàntica. Sembla que només està en anglès, però hi ha alternatives per altres idiomes. (https://wordnet.princeton.edu/)</li>
+<li><strong>spaCy</strong>: Una biblioteca de Python dissenyada per a l'ús en producció, amb un enfocament en la velocitat i l'eficiència. Destaca en la detecció de NERs (entitats nomenades) (https://spacy.io/)</li>
+<li><strong>TextBlob</strong>: Una biblioteca de Python que facilita el processament del llenguatge natural amb una API senzilla per a tasques com l'anàlisi de sentiments, la traducció i la correcció ortogràfica. (https://textblob.readthedocs.io/en/dev/)</li>
+<li><strong>Transformers de Hugging Face</strong>: Una biblioteca que proporciona accés a models preentrenats com BERT, GPT-2 i altres. (https://huggingface.co/transformers/)</li>
+<li><strong>Stanford NLP</strong>: Un conjunt d'eines desenvolupades per la Universitat de Stanford per al processament del llenguatge natural. (https://stanfordnlp.github.io/CoreNLP/)</li>
+</ul>
+<p><strong>Eines per a reconeixement de veu i síntesi de veu</strong>:</p>
+<ul>
+<li><strong>SpeechRecognition</strong>: Una biblioteca de Python que facilita la integració de reconeixement de veu en aplicacions. (https://pypi.org/project/SpeechRecognition/)</li>
+<li><strong>gTTS (Google Text-to-Speech)</strong>: Una biblioteca que permet convertir text en veu utilitzant l'API de Google Text-to-Speech. (https://pypi.org/project/gTTS/)</li>
+<li><strong>PyAudio</strong>: Una biblioteca que permet la reproducció i gravació d'àudio en Python. (https://people.csail.mit.edu/hubert/pyaudio/)</li>
+<li><strong>pyttsx3</strong>: Una biblioteca de síntesi de veu (text a audio) que funciona fora de línia. (https://pypi.org/project/pyttsx3/)</li>
+<li><strong>NeMo de NVIDIA</strong>: Una biblioteca per a la creació i entrenament de models de reconeixement de veu i síntesi de veu. És molt potent i està optimitzada per a GPUs (https://developer.nvidia.com/nemo)</li>
+</ul>
+<p>Hi ha moltes altres eines i biblioteques que faciliten el desenvolupament de projectes de PLN i permeten als desenvolupadors implementar solucions avançades de processament del llenguatge natural amb relativa facilitat. Algunes estan especialitzades en reconeixement de veu (o síntesi de text a veu), traducció automàtica, comparació de textos, anàlisi de sentiments, detecció de NERs, etc. Bàsicament es tracta de definir el problema que volem resoldre, i veure quines eines i biblioteques són les més adequades per a la tasca concreta que volem dur a terme.</p>
+<p><strong>Models existents</strong>:</p>
+<ul>
+<li><strong>GPT (Generative Pre-trained Transformer)</strong>: Desenvolupat per OpenAI, és un model de llenguatge avançat capaç de generar text coherent i realitzar diverses tasques de PLN.</li>
+<li><strong>BERT (Bidirectional Encoder Representations from Transformers)</strong>: Desenvolupat per Google, és un model que excel·leix en la comprensió del context i les relacions entre paraules en un text.</li>
+<li><strong>MEGATRON</strong>: Desenvolupat per NVIDIA, és un model de llenguatge massiu dissenyat per a tasques avançades de PLN i generació de text.</li>
+</ul>
+<p>En principi treballarem principalment amb <strong>NLTK</strong> i <strong>spaCy</strong>, ja que són les més senzilles d'utilitzar i les que tenen més documentació i exemples disponibles. Si podem, també farem servir alguna de les eines de <strong>Hugging Face</strong> per a treballar amb models preentrenats. I si encara podem més, mirarem si podem utilitzar <strong>NeMo</strong>, la biblioteca de NVIDIA per a treballar amb models de PLN i de reconeixement de veu.</p>
+<h2 id="alguns-conceptes-basics-en-pln">Alguns conceptes bàsics en PLN</h2>
+<p>Abans de començar a veure com treballar en PLN, és important conèixer alguns conceptes bàsics que s'utilitzen habitualment en este camp:</p>
+<ul>
+<li><strong>Tokenització</strong>: El procés de dividir un text en unitats més petites anomenades tokens (paraules, frases, etc.).</li>
+<li><strong>Lematització</strong>: La reducció d'una paraula a la seua forma base o lema. Per exemple, "corrent", "corregut" i "corre" es redueixen al lema "córrer".</li>
+<li><strong>Stemming</strong>: Similar a la lematització, però més agressiu, ja que redueix les paraules a la seua arrel, que pot no ser una paraula real. Per exemple, "corrent", "corregut" i "corre" es redueixen a "corr". També es coneix com <strong><em>derivació regressiva</em></strong></li>
+<li><strong>Vectorització</strong>: El procés de convertir el text en una representació numèrica (vectors) que els models de PLN poden processar. Això es pot fer mitjançant tècniques com el bag of words, TF-IDF o embeddings de paraules. Alguns models que permeten vectoritzar el text són <strong>Word2Vec</strong>, <strong>GloVe</strong> i <strong>FastText</strong>.</li>
+<li><strong>Similitud de cosinus</strong>: Una mesura de la similitud entre dos vectors que s'utilitza sovint en PLN per comparar la similitud entre textos o paraules. Torna un resultat entre -1 (totalment diferents) i 1 (idèntics).</li>
+<li><strong>Paraules de parada (stop words)</strong>: Paraules comunes que sovint s'eliminen durant el processament del llenguatge, com "i", "el", "de", etc., ja que aporten poc significat al text.</li>
+<li><strong>N-grames (agregació sintagmàtica)</strong>: Seqüències contigües de n elements (paraules o caràcters) en un text. Per exemple, els bigrames de la frase "El gat negre" serien "El gat" i "gat negre".</li>
+<li><strong>TTS</strong>: Text to Speech, síntesi de veu a partir de text.</li>
+<li><strong>ASR</strong>: Automatic Speech Recognition, reconeixement automàtic de veu.</li>
+<li><strong>NER</strong>: Named Entity Recognition, reconeixement d'entitats nomenades (noms de persones, llocs, organitzacions, etc.) dins d'un text.</li>
+<li><strong>Transformers</strong>: Arquitectura de xarxes neuronals utilitzada en models avançats de PLN, com BERT i GPT, que permeten una millor comprensió del context i les relacions entre paraules en un text. És la base principal dels models de llenguatge moderns.</li>
+<li><strong>LLM (Large Language Models)</strong>: Models de llenguatge de gran escala que utilitzen arquitectures de transformers i són capaços de generar text coherent i realitzar diverses tasques de PLN amb alta precisió. Alguns exemples inclouen GPT-3, BERT i MEGATRON.</li>
+<li><strong>Fine-tuning</strong>: Un concepte que se pot aplicar al PLN i a altres tipus de models. El procés d'ajustar un model preentrenat a una tasca concreta mitjançant l'entrenament amb un conjunt de dades específic per a aquesta tasca. Això permet al model adaptar-se millor a les necessitats particulars del problema que es vol resoldre.</li>
+</ul>
+<h2 id="preprocessament-de-text">Preprocessament de text</h2>
+<p>El <strong>preprocessament de text</strong> és una etapa crucial en el processament del llenguatge natural, ja que permet preparar el text per a l'anàlisi i l'entrenament de models. Algunes de les tècniques més comunes de preprocessament ja les hem comentat en l'apartat anterior. En general s'utilitzen:</p>
+<ul>
+<li><strong>Normalització</strong>: Convertir el text a una forma estàndard, com convertir totes les lletres a minúscules o eliminar signes de puntuació.</li>
+<li><strong>Tokenització</strong>: Dividir el text en unitats més petites (tokens).</li>
+<li><strong>Lematització</strong>: Reduir les paraules a la seua forma base o lema.</li>
+<li><strong>Stemming</strong>: Reduir les paraules a la seua arrel.</li>
+<li><strong>Eliminació de paraules de parada</strong>: Eliminar paraules comunes que aporten poc significat al text.</li>
+<li><strong>Gestió de negacions</strong>: Identificar i gestionar les negacions en el text, ja que poden canviar significativament el significat d'una frase.</li>
+</ul>
+<h2 id="analisi-de-sentiments">Anàlisi de sentiments</h2>
+<p>L'<strong>anàlisi de sentiments</strong> és una tècnica de PLN que permet identificar i classificar les opinions i emocions expressades en un text. Esta tècnica és especialment útil per a empreses que volen entendre les opinions dels seus clients a través de ressenyes, comentaris en xarxes socials, etc. L'anàlisi de sentiments pot classificar els textos com a positius, negatius o neutres, i també pot identificar emocions específiques com la felicitat, la tristesa, la ira, etc.</p>
+<p>Els mètodes principals utilitzats en l'anàlisi de sentiments inclouen:</p>
+<ul>
+<li><strong>Mètodes basats en regles</strong>: Utilitzen un conjunt de regles lingüístiques per identificar les opinions i emocions en el text. En general se basen en llistes de paraules a les quals s'assigna una polaritat (positiva, negativa o neutra) i es compten les aparicions d'aquestes paraules en el text per determinar el sentiment general. També poden utilitzar regles gramaticals per identificar negacions o intensificadors que poden canviar el sentiment d'una frase.</li>
+<li><strong>Mètodes estadístics</strong>: Utilitzen tècniques estadístiques per identificar patrons en grans conjunts de dades textuals i classificar els sentiments.</li>
+<li><strong>Mètodes d'aprenentatge automàtic supervisat</strong>: Utilitzen algoritmes d'aprenentatge automàtic per entrenar models que puguen classificar els sentiments en funció de les característiques del text. El model s'ha d'entrenar amb un conjunt de dades etiquetades, on cada text té associada una etiqueta de sentiment (positiu, negatiu, neutre, etc.). Un cop entrenat, el model pot classificar nous textos en funció de les característiques que ha après durant l'entrenament.</li>
+<li><strong>Mètodes d'aprenentatge automàtic no supervisat</strong>: Utilitzen tècniques d'aprenentatge automàtic per identificar patrons en grans conjunts de dades textuals sense necessitat d'etiquetes de sentiment. Estos mètodes poden utilitzar tècniques com el clustering o l'anàlisi de components principals per identificar grups de textos amb sentiments similars.</li>
+<li><strong>Mètodes d'aprenentatge profund</strong>: Utilitzen xarxes neuronals profundes per capturar les complexitats del llenguatge i classificar els sentiments amb alta precisió.</li>
+</ul>
+<p>Models com <strong>BOW</strong> (Bag of Words), <strong>TF-IDF</strong> (Term Frequency-Inverse Document Frequency), <strong>Word Embeddings</strong> (com Word2Vec, GloVe i FastText), <strong>VADER</strong> (per regles, en anglès) i <strong>Transformers</strong> com <strong>BERT</strong> estan entre els més utilitzats en l'anàlisi de sentiments. Alguns d'ells estan basats en regles, altres en estadístiques, altres en aprenentatge automàtic i altres en aprenentatge profund (xarxes neuronals). La tria del mètode adequat depèn de la complexitat de la tasca, la quantitat de dades disponibles i els recursos computacionals.</p>
+<p>No cal que ens allarguem més en la part teòrica, anirem veient els concepts necessaris segons els anem necessitant en les pràctiques que farem. Ara anem a veure com treballar amb PLN utilitzant Python i algunes de les biblioteques més populars en este camp i aplicant-les a tasques concretes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
