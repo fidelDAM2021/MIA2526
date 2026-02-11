@@ -9,3 +9,4 @@
 * [3.2 Algorismes de cerca](u03/cerques.md)
 * [3.3 Cerques locals](u03/cerques_locals.md)
 * [3.4 Programació dinàmica](u03/programacio_dinamica.md)
+* [4. Processament del llenguatge natural](u04/index.md)
