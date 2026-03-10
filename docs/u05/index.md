@@ -25,7 +25,7 @@ En moltes implementacions modernes en Python, estos components se representen co
 - Objectes (fets) que se manipulen a través del motor de inferència.
 - Un bucle d'execució que dispara regles fins que no hi ha més regles aplicables.
 
-![Esquema d'un sistema expert](imatges/u06-01.png)
+![Esquema d'un sistema expert](imatges/u05-01.png)
 
 ## Tipus de raonament: encadenament cap avant i can enrere
 
